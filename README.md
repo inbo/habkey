@@ -9,7 +9,7 @@
 [Wouters, Jan![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0001-8200-9102)[^aut][^cre][^INBO];
 [Lommelen, Els![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-3481-5684)[^aut][^INBO];
 [Agentschap voor Natuur en Bos (ANB)](mailto:natuurenbos%40vlaanderen.be)[^cph][^fnd];
-[Instituut voor Natuur- en Bosonderzoek (INBO)](mailto:info%40inbo.be)[^cph]
+[Instituut voor Natuur- en Bosonderzoek (INBO)](mailto:info%40inbo.be)[^cph][^fnd]
 
 [^aut]: author
 [^cph]: copyright holder

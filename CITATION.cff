@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using these metadata.
+title: "Habitatsleutel"
+authors:
+- given-names: Jan
+  family-names: Wouters
+  affiliation: Instituut voor Natuur- en Bosonderzoek (INBO)
+  orcid: 0000-0001-8200-9102
+- given-names: Els
+  family-names: Lommelen
+  affiliation: Instituut voor Natuur- en Bosonderzoek (INBO)
+  orcid: 0000-0002-3481-5684
+keywords:
+- vegetation
+- identification
+- classification
+contact:
+- given-names: Jan
+  family-names: Wouters
+  affiliation: Instituut voor Natuur- en Bosonderzoek (INBO)
+  orcid: 0000-0001-8200-9102
+doi: ~
+license: CC BY 4.0
+repository-code: https://github.com/inbo/habkey/
+type: software
+abstract: "Identificeren van vegetatie-opnamen aan de hand van habitatsleutels"

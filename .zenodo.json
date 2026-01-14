@@ -1,0 +1,46 @@
+{
+  "license": "CC BY 4.0",
+  "access_right": "open",
+  "title": "Habitatsleutel",
+  "description": "<p>Identificeren van vegetatie-opnamen aan de hand van habitatsleutels<\/p>",
+  "keywords": [
+    "vegetation",
+    "identification",
+    "classification"
+  ],
+  "upload_type": "software",
+  "language": "nld",
+  "contributors": [
+    {
+      "name": "Wouters, Jan",
+      "affiliation": "Instituut voor Natuur- en Bosonderzoek (INBO)",
+      "orcid": "0000-0001-8200-9102",
+      "type": "contactperson"
+    },
+    {
+      "name": "Agency for Nature & Forests (ANB)",
+      "type": "rightsholder"
+    },
+    {
+      "name": "Research Institute for Nature and Forest (INBO)",
+      "type": "rightsholder"
+    }
+  ],
+  "creators": [
+    {
+      "name": "Wouters, Jan",
+      "affiliation": "Instituut voor Natuur- en Bosonderzoek (INBO)",
+      "orcid": "0000-0001-8200-9102"
+    },
+    {
+      "name": "Lommelen, Els",
+      "affiliation": "Instituut voor Natuur- en Bosonderzoek (INBO)",
+      "orcid": "0000-0002-3481-5684"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "inbo"
+    }
+  ]
+}
