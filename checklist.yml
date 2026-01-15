@@ -23,4 +23,7 @@ spelling:
   ignore:
   - .github
   - LICENSE.md
+  - README.md
+  other:
+    en-GB: source/checklist.R
 pak: []
