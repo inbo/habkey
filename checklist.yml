@@ -2,7 +2,13 @@ description: Configuration file for checklist::check_pkg()
 package: no
 allowed:
   warnings: []
-  notes: []
+  notes:
+  - motivation: te vroeg
+    value: no DOI badge found in README.md
+  - motivation: te vroeg
+    value: No version information found in README.md
+  - motivation: te vroeg
+    value: no website badge found in README.md
 required:
 - CITATION
 - checklist
