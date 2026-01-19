@@ -30,4 +30,5 @@ docs
 libs
 output
 renv/library
+temp/
 !source/**/_extensions/**
