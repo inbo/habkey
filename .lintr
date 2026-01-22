@@ -1,0 +1,7 @@
+
+linters: linters_with_defaults(
+    object_usage_linter = object_usage_linter(
+      global_variables = c('%>%', '.data', 'bind_rows', 'replace_na')
+    )
+  )
+
