@@ -20,9 +20,9 @@ De code voert de volgende kernstappen uit:
 
 ```{r knitr, include=FALSE}
 knitr::opts_chunk$set(
-  echo = TRUE,      # Toon de code (optioneel)
-  message = TRUE,   # FALSE Verbergt alle messages 
-  warning = TRUE,    # FALSE Verbergt alle warnings
+  echo = TRUE, # Toon de code (optioneel)
+  message = TRUE, # FALSE Verbergt alle messages
+  warning = TRUE, # FALSE Verbergt alle warnings
   include = TRUE
 )
 ```
@@ -35,7 +35,6 @@ library(tidyverse)
 
 ```{r setup}
 path_data <- file.path("data", "bron", "access")
-
 ```
 
 ```{r parameters}
@@ -45,46 +44,50 @@ sleutel_code <- "H" # de opgegeven sleutel
 
 # 1. Voorbereiding: Haal tabellen op
 ```{r ophalen tabellen}
-  # 1. Voorbereiding: Haal tabellen op
-    # lijst met habitattypen
-  str_tabel_ht <- read.csv2(file.path(path_data, "cde_typen.csv"))
+# 1. Voorbereiding: Haal tabellen op
+# lijst met habitattypen
+str_tabel_ht <- read.csv2(file.path(path_data, "cde_typen.csv"))
 
-    # lijst met sleutels
-  cde_tabellen <- read.csv2(file.path(path_data, "cde_sleutels.csv"))
+# lijst met sleutels
+cde_tabellen <- read.csv2(file.path(path_data, "cde_sleutels.csv"))
 
-    # sleutel
-  df_sleutel <- read.csv2(file.path(path_data, "tbl_sleutel.csv"))
+# sleutel
+df_sleutel <- read.csv2(file.path(path_data, "tbl_sleutel.csv"))
 
-    # ophalen tabel met de sleuteluitkomsten voor de opgegeven sleutel
-  sleutel_naam <- cde_tabellen %>% 
-    filter(code == sleutel_code) %>% 
-    pull(tabelnaam) %>% 
-    tolower()
-  
-  filenaam_tbl_sleuteluitkomst <- paste0("tbl_sleutel_uitkomst_", sleutel_naam )
-  file_tbl_sleuteluitkomst <- 
-    file.path(path_data,paste0(filenaam_tbl_sleuteluitkomst, ".csv"))
-  
-  if (file.exists(file_tbl_sleuteluitkomst) ) {
-    str_tabel_doel <- 
-      read.csv2(file_tbl_sleuteluitkomst)
-  } else {
-    stop(paste("Bestand", filenaam_tbl_sleuteluitkomst ,
-               "niet gevonden. Maak eerst zelf eerst een lege structuurtabel."))
-  }
-  
-  # de huidige versie backuppen (onder de naam ..._bu.csv)
-  file.copy(from = file_tbl_sleuteluitkomst,
-            to = file.path(path_data,paste0(filenaam_tbl_sleuteluitkomst, 
-                                            "_bu.csv")),
-            overwrite = TRUE
-            )
-  str_tabel_doel_bu <- str_tabel_doel
-  
-  # regels verwijderen
-  str_tabel_doel <- str_tabel_doel[0, ]
-  rm(file_tbl_sleuteluitkomst)
+# ophalen tabel met de sleuteluitkomsten voor de opgegeven sleutel
+sleutel_naam <- cde_tabellen %>%
+  filter(code == sleutel_code) %>%
+  pull(tabelnaam) %>%
+  tolower()
 
+filenaam_tbl_sleuteluitkomst <- paste0("tbl_sleutel_uitkomst_", sleutel_naam)
+file_tbl_sleuteluitkomst <-
+  file.path(path_data, paste0(filenaam_tbl_sleuteluitkomst, ".csv"))
+
+if (file.exists(file_tbl_sleuteluitkomst)) {
+  str_tabel_doel <-
+    read.csv2(file_tbl_sleuteluitkomst)
+} else {
+  stop(paste(
+    "Bestand", filenaam_tbl_sleuteluitkomst,
+    "niet gevonden. Maak eerst zelf eerst een lege structuurtabel."
+  ))
+}
+
+# de huidige versie backuppen (onder de naam ..._bu.csv)
+file.copy(
+  from = file_tbl_sleuteluitkomst,
+  to = file.path(path_data, paste0(
+    filenaam_tbl_sleuteluitkomst,
+    "_bu.csv"
+  )),
+  overwrite = TRUE
+)
+str_tabel_doel_bu <- str_tabel_doel
+
+# regels verwijderen
+str_tabel_doel <- str_tabel_doel[0, ]
+rm(file_tbl_sleuteluitkomst)
 ```
 
 # 2. De Kernlogica: Backtracking in de Boom
@@ -92,119 +95,105 @@ De code zoekt voor elk habitattype waar het in de ja_uitkomst of nee_uitkomst st
 
 ```{r backtracking}
 # Hulpfunctie om kolomnaam te genereren (VBA Bron 12, 16, 29)
-  genereer_veldnaam <- function(niv, subniv) {
-    sub_str <- if (subniv > 0 && subniv < 99) as.character(subniv) else ""
-    kolom_regels[kolom_regels$link == sprintf("regel%03d%s", niv, sub_str),]$kolomnaam
-  }
+genereer_veldnaam <- function(niv, subniv) {
+  sub_str <- if (subniv > 0 && subniv < 99) as.character(subniv) else ""
+  kolom_regels[
+    kolom_regels$link == sprintf("regel%03d%s", niv, sub_str),
+  ]$kolomnaam
+}
 
 # kolomnamen selecteren
-  kolomnaam <- grep("^regel\\d{3,5}", names(str_tabel_doel), value = TRUE)
-  
-  # We behouden alleen de eerste 9 karakters (regel + 3 cijfers + _)
-  link <- sub("(^regel\\d{3,5}).*", "\\1", kolomnaam)
-  kolom_regels <- data.frame(kolomnaam, link)
-  rm(link)
+kolomnaam <- grep("^regel\\d{3,5}", names(str_tabel_doel), value = TRUE)
+
+# We behouden alleen de eerste 9 karakters (regel + 3 cijfers)
+link <- sub("(^regel\\d{3,5}).*", "\\1", kolomnaam)
+kolom_regels <- data.frame(kolomnaam, link)
+rm(link)
 
 # backtracking functie
 
-# # temp
-# ht_naam <- "_M"
 
-  # Interne recursieve functie om omhoog te klimmen
-  walk_up <- function(curr_node, path_so_far, df, ht_naam) {
-    df_sleutel_ht <- df
-    # Verwerk het huidige niveau in het pad
-    # Logica voor subniveau 99 
-    if (!is.na(curr_node$subniveau) && curr_node$subniveau == 99) {
-      sub_regels <- df_sleutel_ht %>% 
-        filter(niveau == curr_node$niveau & subniveau < 99)
-      
-      for (j in seq_len(nrow(sub_regels))) {
-        veld <- genereer_veldnaam(sub_regels$niveau[j], sub_regels$subniveau[j])
-        path_so_far[[veld]] <- 0 # bij 99 zijn alle stappen van het multicriterium nee-antwoorden
-      }
-    } else {
-      # bij een normaal niveau of specifiek subniveau
-      curr_node$subniveau <- replace_na(curr_node$subniveau, -1)      
-      veld <- genereer_veldnaam(curr_node$niveau, curr_node$subniveau)
-      path_so_far[[veld]] <- curr_node$waarde
+# Interne recursieve functie om omhoog te klimmen
+walk_up <- function(curr_node, path_so_far, df, ht_naam) {
+  df_sleutel_ht <- df
+  # Verwerk het huidige niveau in het pad
+  # Logica voor subniveau 99
+  # bij 99 zijn alle stappen van het multicriterium nee-antwoorden
+  if (!is.na(curr_node$subniveau) && curr_node$subniveau == 99) {
+    sub_regels <- df_sleutel_ht  %>%
+      filter(.data$niveau == curr_node$niveau & .data$subniveau < 99)
+    for (j in seq_len(nrow(sub_regels))) {
+      veld <- genereer_veldnaam(sub_regels$niveau[j], sub_regels$subniveau[j])
+      path_so_far[[veld]] <- 0
     }
-    
-    # Zoek ALLE moeders 
-    parents <- df_sleutel_ht %>% 
-      filter(bij_ja == curr_node$niveau | bij_nee == curr_node$niveau)
-    
-    # Als er geen moeders meer zijn, is dit pad voltooid 
-    if (nrow(parents) == 0) {
-      resultaat <- as.data.frame(path_so_far)
-      resultaat$conclusie <- ht_naam
-      # str_tabel_doel <- str_tabel_doel %>%
-      #   full_join(resultaat)
-      str_tabel_doel <- str_tabel_doel %>%
-        bind_rows(resultaat)
-      # return(list(as.data.frame(path_so_far)))
-      return(str_tabel_doel)
-    }
-    
-    # Als er wel moeders zijn, ga voor ELKE moeder verder 
-    purrr::map_df(seq_len(nrow(parents)), function(idx) {
-      p_node <- parents[idx, ]
-      # Bepaal de waarde van de moeder (was het een 'Ja' of 'Nee' pad?) 
-      p_node$waarde <- ifelse(p_node$bij_ja == curr_node$niveau, 1, 0)
-      
-      walk_up(p_node, path_so_far, df, ht_naam) # in R kan men dus in een functie verwijzen naar dezelfde functie !
-      # Daarom is het wel opletten voor kringverwijzingen. Hierop moet eerst gecontroleerd worden.
-    })
+  } else {
+    # bij een normaal niveau of specifiek subniveau
+    curr_node$subniveau <- replace_na(curr_node$subniveau, -1)
+    veld <- genereer_veldnaam(curr_node$niveau, curr_node$subniveau)
+    path_so_far[[veld]] <- curr_node$waarde
   }
 
-  verwerk_ht_met_vertakkingen <- function(ht_naam) {
-  
-    # 1. De sleutel beperken tot het habitattype
-    df_sleutel_ht <- df_sleutel %>% 
-        filter(tabel == sleutel_code)  
-    
-    # 2. Zoek startpunten 
-      
-    starts_ja <- df_sleutel_ht %>% 
-      filter(ja_uitkomst == ht_naam) %>% 
-      mutate(waarde = 1)
-    
-    starts_nee <- df_sleutel_ht %>% 
-      filter(nee_uitkomst == ht_naam) %>% 
-      mutate(waarde = 0)
-      
-    start_nodes <- bind_rows(starts_ja, starts_nee)
-  
-    
-    # 3. Start de wandeling voor elk startpunt
-    if (nrow(start_nodes) > 0) {
-      alle_paden <- purrr::map_df(seq_len(nrow(start_nodes)), function(i) {
-        walk_up(start_nodes[i, ], list(), df = df_sleutel_ht, ht_naam)
-      }
-      )
-    } else {
-      alle_paden <- str_tabel_doel[0,]
-    }
+  # Zoek ALLE moeders
+  parents <- df_sleutel_ht %>%
+    filter(.data$bij_ja == curr_node$niveau | .data$bij_nee == curr_node$niveau)
+
+  # Als er geen moeders meer zijn, is dit pad voltooid
+  if (nrow(parents) == 0) {
+    resultaat <- as.data.frame(path_so_far)
+    resultaat$conclusie <- ht_naam
+
+    str_tabel_doel <- str_tabel_doel %>%
+      bind_rows(resultaat)
+
+    return(str_tabel_doel)
+  }
+
+  # Als er wel moeders zijn, ga voor ELKE moeder verder
+  purrr::map_df(seq_len(nrow(parents)), function(idx) {
+    p_node <- parents[idx, ]
+    # Bepaal de waarde van de moeder (was het een 'Ja' of 'Nee' pad?)
+    p_node$waarde <- ifelse(p_node$bij_ja == curr_node$niveau, 1, 0)
+
+    walk_up(p_node, path_so_far, df, ht_naam) # in R kan men dus in een functie
+    # verwijzen naar dezelfde functie !
+    # Daarom is het wel opletten voor kringverwijzingen. Hierop moet eerst
+    # gecontroleerd worden.
+  })
+}
+
+verwerk_ht_met_vertakkingen <- function(ht_naam) {
+  # 1. De sleutel beperken tot het habitattype
+  df_sleutel_ht <- df_sleutel %>%
+    filter(.data$tabel == sleutel_code)
+
+  # 2. Zoek startpunten
+
+  starts_ja <- df_sleutel_ht %>%
+    filter(.data$ja_uitkomst == ht_naam) %>%
+    mutate(waarde = 1)
+
+  starts_nee <- df_sleutel_ht %>%
+    filter(.data$nee_uitkomst == ht_naam) %>%
+    mutate(waarde = 0)
+
+  start_nodes <- bind_rows(starts_ja, starts_nee)
+
+
+  # 3. Start de wandeling voor elk startpunt
+  if (nrow(start_nodes) > 0) {
+    alle_paden <- purrr::map_df(seq_len(nrow(start_nodes)), function(i) {
+      walk_up(start_nodes[i, ], list(), df = df_sleutel_ht, ht_naam)
+    })
+  } else {
+    alle_paden <- str_tabel_doel[0, ]
+  }
   return(alle_paden)
 }
 
 
 habitat_lijst <- str_tabel_ht[[1]] # De eerste kolom met de codes
-# ht_naam <- "2330_dw"
 
 finaal_resultaat <- purrr::map_df(habitat_lijst, function(ht) {
   verwerk_ht_met_vertakkingen(ht)
 })
-
-# vgln <- finaal_resultaat %>% count(conclusie)
-# vglo <- str_tabel_doel_bu %>% count(conclusie)
-# 
-# verschil <- str_tabel_doel_bu %>% 
-#   semi_join(vgln)
-# aantal <- vglo %>% rename(n_oud = n) %>% 
-#   inner_join(vgln)
-# 
-# all.equal(verschil %>% select(-c(1:3)) %>% arrange(across(everything())),
-#           finaal_resultaat %>% select(-c(1:3)) %>% arrange(across(everything())))
 ```
-
