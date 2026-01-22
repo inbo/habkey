@@ -47,14 +47,14 @@ sleutel_code <- "H" # de opgegeven sleutel
 ```{r ophalen tabellen}
   # 1. Voorbereiding: Haal tabellen op
     # lijst met habitattypen
-  strTabelHT <- read.csv2(file.path(path_data, "cde_typen.csv"))
+  str_tabel_ht <- read.csv2(file.path(path_data, "cde_typen.csv"))
 
     # lijst met sleutels
   cde_tabellen <- read.csv2(file.path(path_data, "cde_sleutels.csv"))
-  
+
     # sleutel
   df_sleutel <- read.csv2(file.path(path_data, "tbl_sleutel.csv"))
-  
+
     # ophalen tabel met de sleuteluitkomsten voor de opgegeven sleutel
   sleutel_naam <- cde_tabellen %>% 
     filter(code == sleutel_code) %>% 
@@ -66,7 +66,7 @@ sleutel_code <- "H" # de opgegeven sleutel
     file.path(path_data,paste0(filenaam_tbl_sleuteluitkomst, ".csv"))
   
   if (file.exists(file_tbl_sleuteluitkomst) ) {
-    strTabelDoel <- 
+    str_tabel_doel <- 
       read.csv2(file_tbl_sleuteluitkomst)
   } else {
     stop(paste("Bestand", filenaam_tbl_sleuteluitkomst ,
@@ -79,10 +79,10 @@ sleutel_code <- "H" # de opgegeven sleutel
                                             "_bu.csv")),
             overwrite = TRUE
             )
-  strTabelDoel_bu <- strTabelDoel
+  str_tabel_doel_bu <- str_tabel_doel
   
   # regels verwijderen
-  strTabelDoel <- strTabelDoel[0, ]
+  str_tabel_doel <- str_tabel_doel[0, ]
   rm(file_tbl_sleuteluitkomst)
 
 ```
@@ -98,7 +98,7 @@ De code zoekt voor elk habitattype waar het in de ja_uitkomst of nee_uitkomst st
   }
 
 # kolomnamen selecteren
-  kolomnaam <- grep("^regel\\d{3,5}", names(strTabelDoel), value = TRUE)
+  kolomnaam <- grep("^regel\\d{3,5}", names(str_tabel_doel), value = TRUE)
   
   # We behouden alleen de eerste 9 karakters (regel + 3 cijfers + _)
   link <- sub("(^regel\\d{3,5}).*", "\\1", kolomnaam)
@@ -138,12 +138,12 @@ De code zoekt voor elk habitattype waar het in de ja_uitkomst of nee_uitkomst st
     if (nrow(parents) == 0) {
       resultaat <- as.data.frame(path_so_far)
       resultaat$conclusie <- ht_naam
-      # strTabelDoel <- strTabelDoel %>%
+      # str_tabel_doel <- str_tabel_doel %>%
       #   full_join(resultaat)
-      strTabelDoel <- strTabelDoel %>%
+      str_tabel_doel <- str_tabel_doel %>%
         bind_rows(resultaat)
       # return(list(as.data.frame(path_so_far)))
-      return(strTabelDoel)
+      return(str_tabel_doel)
     }
     
     # Als er wel moeders zijn, ga voor ELKE moeder verder 
@@ -183,23 +183,23 @@ De code zoekt voor elk habitattype waar het in de ja_uitkomst of nee_uitkomst st
       }
       )
     } else {
-      alle_paden <- strTabelDoel[0,]
+      alle_paden <- str_tabel_doel[0,]
     }
   return(alle_paden)
 }
 
 
-habitat_lijst <- strTabelHT[[1]] # De eerste kolom met de codes
-ht_naam <- "2330_dw"
+habitat_lijst <- str_tabel_ht[[1]] # De eerste kolom met de codes
+# ht_naam <- "2330_dw"
 
 finaal_resultaat <- purrr::map_df(habitat_lijst, function(ht) {
   verwerk_ht_met_vertakkingen(ht)
 })
 
 # vgln <- finaal_resultaat %>% count(conclusie)
-# vglo <- strTabelDoel_bu %>% count(conclusie)
+# vglo <- str_tabel_doel_bu %>% count(conclusie)
 # 
-# verschil <- strTabelDoel_bu %>% 
+# verschil <- str_tabel_doel_bu %>% 
 #   semi_join(vgln)
 # aantal <- vglo %>% rename(n_oud = n) %>% 
 #   inner_join(vgln)
