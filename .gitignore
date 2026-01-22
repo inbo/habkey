@@ -22,6 +22,7 @@
 *.sty
 *.tex
 *.xls*
+*.ldb
 *_cache
 *_files
 *_freeze
