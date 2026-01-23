@@ -89,8 +89,68 @@ str_tabel_doel_bu <- str_tabel_doel
 str_tabel_doel <- str_tabel_doel[0, ]
 rm(file_tbl_sleuteluitkomst)
 ```
+# 2. Controle op kringverwijzingen
+Deze functie doorloopt de boom vanaf de wortel en houdt bij welke knopen (niveaus) hij al is tegengekomen in het huidige pad.
+```{r check-kringverwijzingen}
 
-# 2. De Kernlogica: `Backtracking` in de boom
+check_sleutel_cycli <- function(df_sleutel, sleutel_code) {
+  stopifnot(require("dplyr"))
+
+  # 1. Filter de data voor de relevante sleutelgroep [cite: 8]
+  df_check <- df_sleutel |>
+    filter(.data$tabel == sleutel_code) |>
+    select(.data$niveau, .data$bij_ja, .data$bij_nee)
+
+  # Interne helperfunctie voor Depth-First Search
+  detecteer_lus <- function(huidig_niv, pad_geschiedenis) {
+    # Als het huidige niveau al in het pad zit, hebben we een lus gevonden!
+    if (huidig_niv %in% pad_geschiedenis) {
+      return(list(status = TRUE, lus = c(pad_geschiedenis, huidig_niv)))
+    }
+
+    # Zoek de rij voor het huidige niveau
+    rij <- df_check %>% filter(.data$niveau == huidig_niv)
+    if (nrow(rij) == 0) return(list(status = FALSE)) # Eindpunt bereikt
+
+    # Check het 'Ja' pad en het 'Nee' pad
+    paden <- c(rij$bij_ja, rij$bij_nee)
+    paden <- paden[!is.na(paden) & paden > 0] # Negeer lege of eind-waarden
+
+    for (volgend_niv in paden) {
+      resultaat <- detecteer_lus(volgend_niv, c(pad_geschiedenis, huidig_niv))
+      if (resultaat$status) return(resultaat)
+    }
+
+    return(list(status = FALSE))
+  }
+
+  # Start de controle vanaf niveau 1 (of alle beginpunten)
+  start_punten <-
+    df_check$niveau[!(df_check$niveau %in% c(df_check$bij_ja,
+                                             df_check$bij_nee))]
+  if (length(start_punten) == 0) start_punten <- df_check$niveau[1]
+
+  for (start in start_punten) {
+    check <- detecteer_lus(start, c())
+    if (check$status) {
+      message <- paste("LUS GEVONDEN in tabel", sleutel_code, ":",
+                       paste(check$lus, collapse = " -> "))
+      stop(message)
+    }
+  }
+
+  print(paste("Sleutel", sleutel_code, "is veilig bevonden (geen lussen)."))
+  return(TRUE)
+}
+
+# toepassen van de functie
+check_sleutel_cycli(df_sleutel, sleutel_code)
+```
+
+
+
+
+# 3. De Kernlogica: `Backtracking` in de boom
 De code zoekt voor elk habitattype waar het in de ja_uitkomst of nee_uitkomst staat en klimt dan omhoog in de sleutel om zo de gemaakte keuzen bij de determinatie te reconstrueren.
 
 ```{r backtracking}
@@ -115,12 +175,13 @@ rm(link)
 
 # Interne recursieve functie om omhoog te klimmen
 walk_up <- function(curr_node, path_so_far, df, ht_naam) {
+  stopifnot(require("dplyr"))
   df_sleutel_ht <- df
   # Verwerk het huidige niveau in het pad
   # Logica voor subniveau 99
   # bij 99 zijn alle stappen van het multicriterium nee-antwoorden
   if (!is.na(curr_node$subniveau) && curr_node$subniveau == 99) {
-    sub_regels <- df_sleutel_ht  %>%
+    sub_regels <- df_sleutel_ht |>
       filter(.data$niveau == curr_node$niveau & .data$subniveau < 99)
     for (j in seq_len(nrow(sub_regels))) {
       veld <- genereer_veldnaam(sub_regels$niveau[j], sub_regels$subniveau[j])
@@ -134,7 +195,7 @@ walk_up <- function(curr_node, path_so_far, df, ht_naam) {
   }
 
   # Zoek ALLE moeders
-  parents <- df_sleutel_ht %>%
+  parents <- df_sleutel_ht |>
     filter(.data$bij_ja == curr_node$niveau | .data$bij_nee == curr_node$niveau)
 
   # Als er geen moeders meer zijn, is dit pad voltooid
@@ -142,7 +203,7 @@ walk_up <- function(curr_node, path_so_far, df, ht_naam) {
     resultaat <- as.data.frame(path_so_far)
     resultaat$conclusie <- ht_naam
 
-    str_tabel_doel <- str_tabel_doel %>%
+    str_tabel_doel <- str_tabel_doel  |>
       bind_rows(resultaat)
 
     return(str_tabel_doel)
@@ -162,18 +223,20 @@ walk_up <- function(curr_node, path_so_far, df, ht_naam) {
 }
 
 verwerk_ht_met_vertakkingen <- function(ht_naam) {
+  stopifnot(require("tidyr"))
+  stopifnot(require("dplyr"))
   # 1. De sleutel beperken tot het habitattype
-  df_sleutel_ht <- df_sleutel %>%
+  df_sleutel_ht <- df_sleutel |>
     filter(.data$tabel == sleutel_code)
 
   # 2. Zoek startpunten
 
-  starts_ja <- df_sleutel_ht %>%
-    filter(.data$ja_uitkomst == ht_naam) %>%
+  starts_ja <- df_sleutel_ht |>
+    filter(.data$ja_uitkomst == ht_naam)  |>
     mutate(waarde = 1)
 
-  starts_nee <- df_sleutel_ht %>%
-    filter(.data$nee_uitkomst == ht_naam) %>%
+  starts_nee <- df_sleutel_ht |>
+    filter(.data$nee_uitkomst == ht_naam) |>
     mutate(waarde = 0)
 
   start_nodes <- bind_rows(starts_ja, starts_nee)
@@ -190,10 +253,31 @@ verwerk_ht_met_vertakkingen <- function(ht_naam) {
   return(alle_paden)
 }
 
-
+```
+```{r toepassen functie}
+# alle mogelijke uitkomsten oplijsten
 habitat_lijst <- str_tabel_ht[[1]] # De eerste kolom met de codes
 
+# toepassen functie
 finaal_resultaat <- purrr::map_df(habitat_lijst, function(ht) {
   verwerk_ht_met_vertakkingen(ht)
 })
+
+# toevoegen van een uniek nummer
+finaal_resultaat <- finaal_resultaat |>
+  mutate(volgnr = row_number()) # de kolom volgnr bestaat al, maar was nog leeg
+
+# check
+check <- finaal_resultaat |>
+  select(-c(1:3)) |>
+  distinct()
+if (nrow(check) != nrow(finaal_resultaat)) {
+  stop("De uitkomsten zijn niet uniek. Kijk dit aub na.")
+}
+
+# bewaren van het resultaat
+write_csv2(finaal_resultaat,
+           file.path("data", "processed",
+                     paste0(filenaam_tbl_sleuteluitkomst, ".csv")))
 ```
+
