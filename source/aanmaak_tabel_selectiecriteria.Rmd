@@ -12,11 +12,11 @@ De code voert de volgende kernstappen uit:
 
 - Iteratie over Habitattypen: Het loopt door alle habitattypen in de tabel _cde_Habitattypen.
 
-- Pathfinding (Achterwaarts zoeken): Voor elk habitattype zoekt het in _tbl_Sleutel waar dit type als uitkomst ("Ja" of "Nee") staat.
+- `Pathfinding` (Achterwaarts zoeken): Voor elk habitattype zoekt het in _tbl_Sleutel waar dit type als uitkomst ("Ja" of "Nee") staat.
 
 - Boomstructuur reconstrueren: Zodra een uitkomst gevonden is, "klimt" de code omhoog in de boom door te zoeken naar de "moeder-regel" (de regel die naar het huidige niveau leidde).
 
-- Matrix invullen: De resultaten worden opgeslagen in een 3D-array (astrSelectie) die uiteindelijk naar een tabel wordt geschreven.
+- Matrix invullen: De resultaten worden opgeslagen in een 3D-array die uiteindelijk naar een tabel wordt geschreven.
 
 ```{r knitr, include=FALSE}
 knitr::opts_chunk$set(
@@ -90,8 +90,8 @@ str_tabel_doel <- str_tabel_doel[0, ]
 rm(file_tbl_sleuteluitkomst)
 ```
 
-# 2. De Kernlogica: Backtracking in de Boom
-De code zoekt voor elk habitattype waar het in de ja_uitkomst of nee_uitkomst staat en klimt dan omhoog in de sleutel om zo de pathway te reconstrueren.
+# 2. De Kernlogica: `Backtracking` in de boom
+De code zoekt voor elk habitattype waar het in de ja_uitkomst of nee_uitkomst staat en klimt dan omhoog in de sleutel om zo de gemaakte keuzen bij de determinatie te reconstrueren.
 
 ```{r backtracking}
 # Hulpfunctie om kolomnaam te genereren (VBA Bron 12, 16, 29)
