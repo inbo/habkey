@@ -105,7 +105,7 @@ indicatoren_bijwerken_r <- function(df_meta,
       select(-.data$layer.map)
 
     # TOT HIER
-    
+
     # Berekenen Kruiden in Kruidlaag (Fisher som) [cite: 84-88, 113-117]
     kruiden_kl <- df_opnamen |>
       inner_join(df_specsyno, by = c("SpeciesNam" = "ORIGINALNA")) |>
@@ -211,7 +211,7 @@ indicatoren_bijwerken_r <- function(df_meta,
       .groups = "drop"
     ) |>
     tidyr::pivot_wider(names_from = .data$Veldnaam, values_from = .data$Waarde,
-                values_fill = 0)
+                       values_fill = 0)
 
   df_meta <- df_meta |> left_join(dyn_summary, by = "RecordingGivid")
 
