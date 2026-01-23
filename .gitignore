@@ -27,6 +27,7 @@
 *_files
 *_freeze
 *_libs
+*_bu.csv
 docs
 libs
 output

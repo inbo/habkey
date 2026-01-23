@@ -24,6 +24,8 @@ spelling:
   - .github
   - LICENSE.md
   - README.md
+  - source/temp/02_selectie_soorten.Rmd
+  - source/temp/06_allocatie_habitats.Rmd
   other:
     en-GB: source/checklist.R
 pak: []
