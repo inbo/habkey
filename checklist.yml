@@ -15,6 +15,7 @@ required:
 - filename conventions
 - folder conventions
 - license
+- lintr
 - organisation
 - spelling
 spelling:

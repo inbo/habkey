@@ -1,0 +1,24 @@
+conclusie;volgnr;prioriteit;regel001_Bebouwd;regel020_Akker;regel030_Marien;regel040_Strand_Kustduin;regel050_Water;regel060_bomen_struiken;regel062_heide;regel063_heischraal;regel064_brem_gaspeldoorn;regel066_bos;regel070_pijpenstro_smele;regel080_landduin;regel0901_moeras;regel0902_moeras;regel100_metrus;regel105_moeras;regel110_grasland
+_A;1;NA;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+_B;2;NA;0;0;0;0;0;1;0;NA;0;1;NA;NA;NA;NA;NA;NA;NA
+_D;3;NA;0;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+_G;4;NA;0;0;0;0;0;0;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA
+_G;5;NA;0;0;0;0;0;1;0;NA;0;0;NA;NA;NA;NA;0;NA;1
+_G;6;NA;0;0;0;0;0;0;NA;NA;NA;NA;0;0;0;0;0;NA;1
+_G;7;NA;0;0;0;0;0;1;0;NA;0;0;NA;NA;NA;NA;1;0;1
+_G;8;NA;0;0;0;0;0;0;NA;NA;NA;NA;0;0;0;0;1;0;1
+_G;9;NA;0;0;0;0;0;1;1;1;NA;NA;NA;NA;NA;NA;NA;NA;NA
+_H;10;NA;0;0;0;0;0;0;NA;NA;NA;NA;0;1;NA;NA;NA;NA;NA
+_H;11;NA;0;0;0;0;0;1;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA
+_M;12;NA;0;0;0;0;0;0;NA;NA;NA;NA;0;0;1;NA;NA;NA;NA
+_M;13;NA;0;0;0;0;0;0;NA;NA;NA;NA;0;0;NA;1;NA;NA;NA
+_M;14;NA;0;0;0;0;0;1;0;NA;0;0;NA;NA;NA;NA;1;1;NA
+_M;15;NA;0;0;0;0;0;0;NA;NA;NA;NA;0;0;0;0;1;1;NA
+_R;16;NA;0;0;0;0;0;1;0;NA;0;0;NA;NA;NA;NA;0;NA;0
+_R;17;NA;0;0;0;0;0;0;NA;NA;NA;NA;0;0;0;0;0;NA;0
+_R;18;NA;0;0;0;0;0;1;0;NA;0;0;NA;NA;NA;NA;1;0;0
+_R;19;NA;0;0;0;0;0;0;NA;NA;NA;NA;0;0;0;0;1;0;0
+_U;20;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+_W;21;NA;0;0;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+_Z;22;NA;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+rbbsg - sg;23;NA;0;0;0;0;0;1;0;NA;1;NA;NA;NA;NA;NA;NA;NA;NA
