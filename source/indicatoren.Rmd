@@ -1,0 +1,221 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+In dit onderdeel wordt de metadata van de opname aangevuld met enkele kenmerken.
+Ze worden bewaard, zodat ze voor andere toepassingen beschikbaar komen.
+Binnen het project is het nuttig om ze te hebben, om niet terugkerend tijdens 
+de determinatie ze te moeten herberekenen.
+
+```{r knitr, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE, # Toon de code (optioneel)
+  message = TRUE, # FALSE Verbergt alle messages
+  warning = TRUE, # FALSE Verbergt alle warnings
+  include = TRUE
+)
+```
+
+
+```{r pakketten}
+library(tidyverse)
+```
+
+
+```{r setup}
+path_data <- file.path("data", "bron", "access")
+```
+
+```{r parameters}
+sleutel_code <- "H" # de opgegeven sleutel
+
+# Ook de velden mbt bedekking lagen herberekenen?
+recalculate_layers <- TRUE
+```
+
+
+```{r indicatoren}
+
+
+# Helper functie: Fisher som voor bedekking (gebruikt doorheen de VBA code)
+# Formule: 100 maal (1 - exp(sum(log((100 - p + 0.01) / 100))))
+fisher_sum <- function(p) {
+  if (length(p) == 0 || all(is.na(p))) return(0)
+  res <- 1 - exp(sum(log((100 - p + 0.01) / 100), na.rm = TRUE))
+  return(as.integer(res * 100))
+}
+
+indicatoren_bijwerken_r <- function(df_meta,
+                                    df_opnamen,
+                                    df_specsyno,
+                                    df_layer_mapping,
+                                    df_ellenberg,
+                                    df_soorten,
+                                    df_indicator_soortenlijst,
+                                    df_indicatoren,
+                                    sleutel_groep,
+                                    recalculate_layers = FALSE) {
+  stopifnot(require("dplyr"))
+  # 0. Inlezen data
+  df_meta_bron <- read.csv2(
+    file.path(path_data, "test_kopgegevens.csv")
+  )
+  df_opnamen <- read.csv2(
+    file.path(path_data, "test_soortgegevens.csv")
+  )
+  df_layer_mapping <- read.csv2(
+    file.path(path_data, "cde_layer.csv")
+  )
+
+
+  # 1. Reset indicatoren (VBA [cite: 43-44])
+  # Zet alle numerieke velden die niet in de uitzonderingslijst staan op 0
+  cols_to_keep <- c("uniek", "Name", "spoc", "opn", "survey", "plaats",
+                    "recording", "Observer", "waarnemer", "user_reference",
+                    "vast", "regel")
+
+  df_meta <- df_meta_bron |>
+    mutate(across(where(is.numeric) & !contains(cols_to_keep), ~0))
+
+  # 2. Herberekenen bedekking lagen (indien gekozen) [cite: 55-242]
+  if (recalculate_layers) {
+    # check de soortgegevens of deze de kolom "layer_bron" bevat
+    if (!"layer_bron" %in% colnames(df_opnamen)) {
+      stop("Geen veld 'layer_bron' gevonden in de tabel met de soortgegevens. 
+           Mogelijk is de layer-informatie niet correct: niet volgens de 
+           vereenvoudigde indeling cfr. cde_layer.")
+    }
+
+    # check de kopgegevens of deze de kolom " kruideninklbedekking_vast" bevat
+    if (!"kruideninklbedekking_vast" %in% colnames(df_meta)) {
+      stop("Geen veld 'kruideninklbedekking_vast' gevonden in de 
+           tabel met de kopgegevens. Hierdoor is het niet mogelijk om per opname
+           de bedekking van de kruiden in de kruidlaag in te vullen.")
+    }
+
+    # Vereenvoudiging lagen via cdeLayer [cite: 64-65]
+    df_opnamen <- df_opnamen |>
+      left_join(df_layer_mapping, by = c("layer_bron" = "layer_code"),
+                # toevoegen van suffix '.map' aan de rechtertabel mochten er
+                # kolommen dezelfde naam hebben die niet in de join zitten.
+                # Dat is hier inderdaad het geval voor de kolom 'layer'
+                suffix = c("", ".map")) |>
+      mutate(layer = coalesce(.data$layer, .data$layer.map)) |>
+      select(-.data$layer.map)
+
+    # TOT HIER
+    
+    # Berekenen Kruiden in Kruidlaag (Fisher som) [cite: 84-88, 113-117]
+    kruiden_kl <- df_opnamen |>
+      inner_join(df_specsyno, by = c("SpeciesNam" = "ORIGINALNA")) |>
+      filter((.data$Layer == "K" | .data$Layer == "X") & .data$VAATPLANT &
+               !.data$IsEenBoomStruik &
+               !.data$IsEenDwergstruik) |>
+      group_by(.data$RecordingGivid) |>
+      summarise(kruideninklbedekking_vast = fisher_sum(.data$percentage))
+
+    # Berekenen Niet-Kruiden in Kruidlaag
+    niet_kruiden_kl <- df_opnamen |>
+      inner_join(df_specsyno, by = c("SpeciesNam" = "ORIGINALNA")) |>
+      filter((.data$Layer == "K" | .data$Layer == "X") & .data$VAATPLANT &
+               (.data$IsEenBoomStruik | .data$IsEenDwergstruik)) |>
+      group_by(.data$RecordingGivid) |>
+      summarise(NietKruidenInKLBedekking_vast = fisher_sum(.data$Percentage))
+
+    df_meta <- df_meta |>
+      left_join(kruiden_kl, by = "RecordingGivid") |>
+      left_join(niet_kruiden_kl, by = "RecordingGivid")
+  }
+
+  # 3. Ellenberggetallen (Gewogen gemiddelden) [cite: 48-52]
+  ellenberg_calc <- df_opnamen |>
+    inner_join(df_specsyno, by = c("SpeciesNam" = "ORIGINALNA")) |>
+    inner_join(df_ellenberg, by = c("SPECIESNAM" = "ScientnameBelgium")) |>
+    filter(.data$Layer == "K" | .data$Layer == "x") |>
+    group_by(.data$RecordingGivid) |>
+    summarise(
+      Lgetal = round(sum(.data$L * .data$Percentage) / sum(.data$Percentage),
+                     2),
+      Fgetal = round(sum(.data$F * .data$Percentage) / sum(.data$Percentage),
+                     2),
+      Rgetal = round(sum(.data$R * .data$Percentage) / sum(.data$Percentage),
+                     2),
+      Ngetal = round(sum(.data$N * .data$Percentage) / sum(.data$Percentage),
+                     2),
+      Sgetal = round(sum(.data$S * .data$Percentage) / sum(.data$Percentage),
+                     2),
+      RNgetal = round(sum(.data$N * .data$R * .data$Percentage) /
+                        sum(.data$Percentage), 2)
+    )
+
+  df_meta <- df_meta |> rows_update(ellenberg_calc, by = "RecordingGivid")
+
+  # 4. Soortenaantal [cite: 55]
+  soortenaantal <- df_opnamen |>
+    group_by(.data$RecordingGivid) |>
+    summarise(Soortenaantal = n_distinct(.data$SPECIESNAM))
+
+  df_meta <- df_meta |> left_join(soortenaantal, by = "RecordingGivid")
+
+  # 5. Aandeel gras [cite: 58-59]
+  gras_aandeel <- df_opnamen |>
+    inner_join(df_specsyno, by = "SPECIESNAM") |>
+    filter(.data$Layer == "K" | .data$Layer == "x") |>
+    group_by(.data$RecordingGivid) |>
+    summarise(
+      AandeelGras =
+        (sum(ifelse(.data$iseengras == -1, .data$Percentage, 0)) * 100) /
+        sum(.data$Percentage)
+    )
+
+  df_meta <- df_meta |> left_join(gras_aandeel, by = "RecordingGivid")
+
+  # 6. Bosbedekking (Complexere logica met Fisher som en 100% checks)
+  bos_bedekking <- df_opnamen |>
+    filter(.data$Layer %in% c("B", "S")) |>
+    group_by(.data$RecordingGivid) |>
+    summarise(
+      B_perc = max(ifelse(grepl("^B", .data$Layer), .data$CoverPctValue, NA),
+                   na.rm = TRUE),
+      S_perc = max(ifelse(grepl("^S", .data$Layer), .data$CoverPctValue, NA),
+                   na.rm = TRUE)
+    ) |>
+    mutate(BosBedekking = case_when(
+      B_perc == 100 | S_perc == 100 ~ 100,
+      is.na(B_perc) ~ S_perc,
+      is.na(S_perc) ~ B_perc,
+      TRUE ~
+        (1 - exp(log((100 - B_perc) / 100) + log((100 - S_perc) / 100))) * 100
+    ))
+
+  df_meta <- df_meta |> left_join(bos_bedekking |>
+                                    select(.data$RecordingGivid,
+                                           .data$BosBedekking),
+                                  by = "RecordingGivid")
+
+  # 7. Dynamische Indicatoren (Lussen door de soortenlijsten) [cite: 91-105]
+  # In R doen we dit door de criteria te filteren en te joinen
+  indicator_results <- df_indicator_soortenlijst |>
+    filter(.data$HRLCode == sleutel_groep & !is.na(.data$Veldnaam)) |>
+    inner_join(df_indicatoren, by = c("VolgnrCriterium" = "Volgnr")) |>
+    inner_join(df_soorten, by = "SoortenlijstNr") |>
+    inner_join(df_opnamen, by = c("WetNaam" = "SPECIESNAM")) |>
+    group_by(.data$RecordingGivid, .data$Veldnaam, .data$Aard)
+
+  # Bereken bedekking of aantal per indicator [cite: 92, 100]
+  dyn_summary <- indicator_results |>
+    summarise(
+      Waarde = if_else(first(.data$Aard) == "bedekking", sum(.data$Percentage),
+                       as.double(n())),
+      .groups = "drop"
+    ) |>
+    tidyr::pivot_wider(names_from = .data$Veldnaam, values_from = .data$Waarde,
+                values_fill = 0)
+
+  df_meta <- df_meta |> left_join(dyn_summary, by = "RecordingGivid")
+
+  return(df_meta)
+}
+```
+
