@@ -25,6 +25,8 @@ library(tidyverse)
 
 ```{r setup}
 path_data <- file.path("data", "bron", "access")
+path_data_int <- file.path("data", "interim")
+path_data_proc <- file.path("data", "processed")
 ```
 
 ```{r parameters}
@@ -33,6 +35,106 @@ sleutel_code <- "H" # de opgegeven sleutel
 # Ook de velden mbt bedekking lagen herberekenen?
 recalculate_layers <- TRUE
 ```
+# Inlezen data
+
+```{r inlezen data}
+
+
+# kopgegevens opname
+df_meta_bron <- read.csv2(
+  file.path(path_data, "test_kopgegevens.csv")
+)
+
+# opname
+df_opnamen_bron <- read.csv2(
+  file.path(path_data, "test_soortgegevens.csv")
+)
+
+# codetabel vegetatielagen opname
+df_layer_mapping <- read.csv2(
+  file.path(path_data, "cde_layer.csv")
+)
+
+# soortenlijsten
+#   standaardlijst inbo
+file_taxa <-  file.path(path_data_proc, "taxa.csv")
+if (!file.exists(file_taxa)) stop("Bestand 'taxa.csv' niet gevonden.")
+
+soorten_inbo <- read.csv2(file_taxa, stringsAsFactors = FALSE)
+
+#   soortenlijst Access
+file_syno <-  file.path(path_data, "specsyno.csv")
+if (!file.exists(file_syno)) stop("Bestand 'specsyno.csv' niet gevonden.")
+
+soorten_acc <- read.csv2(file_syno, stringsAsFactors = FALSE)
+
+#   eigen soortenlijst
+# als die bestaat wordt deze ingeladen, anders wordt er een lege tabel gemaakt.
+# en een volgnummer begonnen
+file_custom = file.path(path_data, "custom_taxalijst.csv")
+prefix_id <- "CU"
+if (file.exists(file_custom)) {
+  custom_taxa <- read.csv2(file_custom, stringsAsFactors = FALSE)
+  ids_num <- gsub(paste0("^", prefix_id), "", custom_taxa$taxonid)
+
+  if (length(ids_num) == 0) {
+    laatste_nummer <- 0
+  } else{
+    laatste_nummer <- max(as.numeric(ids_num), na.rm = TRUE)    
+  }
+  
+} else {
+  custom_taxa <- soorten_inbo[0, ]
+  laatste_nummer <- 0
+}
+
+
+```
+
+# Controle van de soortnamen
+## Komen de soortnamen uit de opnamen allemaal voor in de inbo-standaardlijst
+```{r controle soortnamen}
+
+# 1. Referentie-pool opbouwen voor de check
+# We maken een vector van ALLE bekende namen en zetten deze naar kleine letters
+bekende_namen_raw <- unique(c(
+  soorten_inbo$tax_orig,
+  soorten_inbo$tax_canon,
+  soorten_inbo$taxon,
+  soorten_acc$originalna,
+  soorten_acc$specieszonderauteur_ori,
+  custom_taxa$tax_orig,
+  custom_taxa$tax_canon
+))
+
+# omzetten van de soortnamen in kleine letters omdat dit anders onterecht
+# aanleiding kan geven voor een (verkeerde) nieuwe soort-melding
+bekende_namen_lower <- tolower(na.omit(bekende_namen_raw))
+
+# dit ook alleen doen voor de namen van de alleen officiële lijst
+officiele_taxa_lower <- tolower(unique(soorten_inbo$taxon))
+
+# soortnamen ophalen uit de opnamen
+soorten_opg <- unique(df_opnamen_bron$speciesnam)
+
+# De functie 'valideer_vegetatie_namen' uitvoeren
+source(file.path("source", "custum_taxalijst.R"))
+
+mijn_bijgewerkte_lijst <- 
+  valideer_vegetatie_namen(soorten_opg,
+                           bekende_namen_lower = bekende_namen_lower,
+                           officiele_taxa_lower = officiele_taxa_lower,
+                           prefix_id = prefix_id,
+                           custom_taxa = custom_taxa,
+                           laatste_nummer = laatste_nummer,
+                           file_custom = file_custom
+                           )
+
+# Bekijk het resultaat
+head(mijn_bijgewerkte_lijst)
+
+```
+
 
 
 ```{r indicatoren}
@@ -57,26 +159,18 @@ indicatoren_bijwerken_r <- function(df_meta,
                                     sleutel_groep,
                                     recalculate_layers = FALSE) {
   stopifnot(require("dplyr"))
-  # 0. Inlezen data
-  df_meta_bron <- read.csv2(
-    file.path(path_data, "test_kopgegevens.csv")
-  )
-  df_opnamen <- read.csv2(
-    file.path(path_data, "test_soortgegevens.csv")
-  )
-  df_layer_mapping <- read.csv2(
-    file.path(path_data, "cde_layer.csv")
-  )
 
 
-  # 1. Reset indicatoren (VBA [cite: 43-44])
+  # 1. Reset indicatoren (VBA [cite: 247-253])
   # Zet alle numerieke velden die niet in de uitzonderingslijst staan op 0
-  cols_to_keep <- c("uniek", "Name", "spoc", "opn", "survey", "plaats",
+  cols_to_keep <- c("uniek", "name", "spoc", "opn", "survey", "plaats",
                     "recording", "Observer", "waarnemer", "user_reference",
                     "vast", "regel")
 
   df_meta <- df_meta_bron |>
     mutate(across(where(is.numeric) & !contains(cols_to_keep), ~0))
+  
+  # summary(df_meta)
 
   # 2. Herberekenen bedekking lagen (indien gekozen) [cite: 55-242]
   if (recalculate_layers) {
@@ -88,23 +182,21 @@ indicatoren_bijwerken_r <- function(df_meta,
     }
 
     # check de kopgegevens of deze de kolom " kruideninklbedekking_vast" bevat
-    if (!"kruideninklbedekking_vast" %in% colnames(df_meta)) {
-      stop("Geen veld 'kruideninklbedekking_vast' gevonden in de 
+    if (!"kruideninkl_bedekking_vast" %in% colnames(df_meta)) {
+      stop("Geen veld 'kruideninkl_bedekking_vast' gevonden in de 
            tabel met de kopgegevens. Hierdoor is het niet mogelijk om per opname
-           de bedekking van de kruiden in de kruidlaag in te vullen.")
+            de bedekking van de kruiden in de kruidlaag in te vullen.")
     }
 
     # Vereenvoudiging lagen via cdeLayer [cite: 64-65]
-    df_opnamen <- df_opnamen |>
+    df_opnamen <- df_opnamen_bron |>
       left_join(df_layer_mapping, by = c("layer_bron" = "layer_code"),
                 # toevoegen van suffix '.map' aan de rechtertabel mochten er
                 # kolommen dezelfde naam hebben die niet in de join zitten.
                 # Dat is hier inderdaad het geval voor de kolom 'layer'
                 suffix = c("", ".map")) |>
       mutate(layer = coalesce(.data$layer, .data$layer.map)) |>
-      select(-.data$layer.map)
-
-    # TOT HIER
+      select(-.data$layer.map, -id)
 
     # Berekenen Kruiden in Kruidlaag (Fisher som) [cite: 84-88, 113-117]
     kruiden_kl <- df_opnamen |>

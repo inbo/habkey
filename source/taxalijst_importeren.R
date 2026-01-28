@@ -1,11 +1,18 @@
+# Deze functie laadt de officiële soortenlijst (inclusief synoniemen) in.
+# Er worden enkele aanpassingen hierin aangebracht.
+# De belangrijkste is dat elke unieke soortnaam ook in synonym_taxon vermeld
+# wordt.
+
 library(dplyr)
 library(readxl)
+library(LSVI)
 
 path_data <- file.path("data", "bron", "soortenlijsten")
 
 # brondata: het geeft niet alleen de officiële namen, maar ook synoniemen
 # waaronder de Nederlandse namen
-taxa_bron <- read_xlsx(file.path(path_data, "synoniemenlijst_taxa2025.xlsx"))
+taxa_bron <-
+  readxl::read_xlsx(file.path(path_data, "synoniemenlijst_taxa2025.xlsx"))
 
 # opsmuk van de tabel
 colnames(taxa_bron) <- snakecase::to_snake_case(colnames(taxa_bron))
@@ -59,9 +66,26 @@ taxa <- bind_rows(
       tax_orig = taxon,
       tax_origid = taxonid,
       tax_orig_taal = "Sci"
+    ),
+  # soms komt de originele naam wel voor als standaard voor een andere taxon,
+  # is de standaardnaam zelf nog geen originele naam: vb. Parnassia palustris L.
+  # = standaard en Parnassia als Nederlandse naam =  originele naam. Parnassia
+  # als standaardnaam komt wel voor in combinatie met Parnassia (G) als original
+  taxa |>
+    inner_join(
+      taxa |>
+        distinct(taxon) |>
+        anti_join(taxa |>
+          select(tax_orig), join_by(taxon == tax_orig)),
+      join_by(taxon)
     ) |>
-    distinct()
-)
+    mutate(
+      tax_orig = taxon,
+      tax_origid = taxonid,
+      tax_orig_taal = "Sci"
+    )
+) |>
+  distinct()
 
 # check originele taxa
 taxa |>
@@ -101,11 +125,8 @@ taxa |>
 # remotes::install_github("inbo/LSVI@rbb")
 # nolint end
 
-library(LSVI) # voor het opstellen van de lijst sleutelsoorten
-maakConnectiePool()
-
 taxa <- taxa |>
-  mutate(tax_canon = parseTaxonnaam(taxon))
+  mutate(tax_canon = LSVI::parseTaxonnaam(taxon))
 
 # bewaren van deze taxonlijst
 # als rds
