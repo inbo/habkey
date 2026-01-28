@@ -71,7 +71,7 @@ soorten_acc <- read.csv2(file_syno, stringsAsFactors = FALSE)
 #   eigen soortenlijst
 # als die bestaat wordt deze ingeladen, anders wordt er een lege tabel gemaakt.
 # en een volgnummer begonnen
-file_custom = file.path(path_data, "custom_taxalijst.csv")
+file_custom <- file.path(path_data, "custom_taxalijst.csv")
 prefix_id <- "CU"
 if (file.exists(file_custom)) {
   custom_taxa <- read.csv2(file_custom, stringsAsFactors = FALSE)
@@ -79,10 +79,10 @@ if (file.exists(file_custom)) {
 
   if (length(ids_num) == 0) {
     laatste_nummer <- 0
-  } else{
-    laatste_nummer <- max(as.numeric(ids_num), na.rm = TRUE)    
+  } else {
+    laatste_nummer <- max(as.numeric(ids_num), na.rm = TRUE)
   }
-  
+
 } else {
   custom_taxa <- soorten_inbo[0, ]
   laatste_nummer <- 0
@@ -118,9 +118,10 @@ officiele_taxa_lower <- tolower(unique(soorten_inbo$taxon))
 soorten_opg <- unique(df_opnamen_bron$speciesnam)
 
 # De functie 'valideer_vegetatie_namen' uitvoeren
-source(file.path("source", "custum_taxalijst.R"))
+source(file.path("source", "custom_taxalijst.R"))
 
-mijn_bijgewerkte_lijst <- 
+# nolint start
+mijn_bijgewerkte_lijst <-
   valideer_vegetatie_namen(soorten_opg,
                            bekende_namen_lower = bekende_namen_lower,
                            officiele_taxa_lower = officiele_taxa_lower,
@@ -129,6 +130,7 @@ mijn_bijgewerkte_lijst <-
                            laatste_nummer = laatste_nummer,
                            file_custom = file_custom
                            )
+# nolint end
 
 # Bekijk het resultaat
 head(mijn_bijgewerkte_lijst)
@@ -169,8 +171,7 @@ indicatoren_bijwerken_r <- function(df_meta,
 
   df_meta <- df_meta_bron |>
     mutate(across(where(is.numeric) & !contains(cols_to_keep), ~0))
-  
-  # summary(df_meta)
+
 
   # 2. Herberekenen bedekking lagen (indien gekozen) [cite: 55-242]
   if (recalculate_layers) {

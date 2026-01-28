@@ -27,7 +27,7 @@ split_taxa <- function(data, column = "tax_canon") {
 
       # 3. Species:
       # We extraheren wat tussen het eerste woord en de marker staat
-      species = ifelse(has_sub,
+      species = ifelse(.data$has_sub,
         str_match(
           !!sym(column),
           paste0("^[^ ]+ (.*?) (", sub_pattern, ")")
@@ -37,12 +37,12 @@ split_taxa <- function(data, column = "tax_canon") {
 
       # 4. Subspecies:
       # Alles vanaf de marker tot het einde
-      subspecies = ifelse(has_sub,
+      subspecies = ifelse(.data$has_sub,
         str_extract(!!sym(column), paste0("(", sub_pattern, ").*$")),
         ""
       )
     ) %>%
-    select(-has_sub)
+    select(-.data$has_sub)
 }
 
 # Test met je data

@@ -75,9 +75,11 @@ taxa <- bind_rows(
     inner_join(
       taxa |>
         distinct(taxon) |>
+        # styler: off
         anti_join(taxa |>
-          select(tax_orig), join_by(taxon == tax_orig)),
+                    select(tax_orig), join_by(taxon == tax_orig)),
       join_by(taxon)
+      # styler: on
     ) |>
     mutate(
       tax_orig = taxon,
