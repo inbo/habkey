@@ -1,0 +1,13 @@
+citHeader("To cite `habkey` in publications please use:")
+# begin checklist entry
+bibentry(
+  bibtype = "Manual",
+  title = "habkey: Habitatsleutel. Version 0.0.0",
+  author = c(person(given = "Jan", family = "Wouters"), person(given = "Els", family = "Lommelen")),
+  year = 2026,
+  url = "https://github.com/inbo/habkey/",
+  abstract = "Identificeren van vegetatie-opnamen aan de hand van habitatsleutels.",
+  textVersion = "Wouters, Jan; Lommelen, Els (2026) habkey: Habitatsleutel. Version 0.0.0. https://github.com/inbo/habkey/",
+  keywords = "vegetatie; identificatie; classificatie",
+)
+# end checklist entry
