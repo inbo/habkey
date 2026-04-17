@@ -1,0 +1,23 @@
+Package: habkey
+Title: Habitatsleutel
+Version: 0.0.0
+Authors@R: c(
+    person("Jan", "Wouters", , "jan.wouters@inbo.be", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-8200-9102", affiliation = "Instituut voor Natuur- en Bosonderzoek (INBO)")),
+    person("Els", "Lommelen", , "els.lommelen@inbo.be", role = "aut",
+           comment = c(ORCID = "0000-0002-3481-5684", affiliation = "Instituut voor Natuur- en Bosonderzoek (INBO)")),
+    person("Instituut voor Natuur- en Bosonderzoek (INBO)", , , "info@inbo.be", role = c("cph", "fnd"),
+           comment = c(ROR = "00j54wy13")),
+    person("Agentschap voor Natuur en Bos (ANB)", , , "natuurenbos@vlaanderen.be", role = "fnd",
+           comment = c(ROR = "04wcznf70"))
+  )
+Description: Identificeren van vegetatie-opnamen aan de hand van habitatsleutels.
+License: GPL-3
+URL: https://github.com/inbo/habkey
+BugReports: https://github.com/inbo/habkey/issues
+Encoding: UTF-8
+Config/checklist/communities: inbo
+Config/checklist/keywords: vegetatie; identificatie; classificatie
+Language: nl-BE
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
