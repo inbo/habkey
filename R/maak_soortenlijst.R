@@ -1,59 +1,62 @@
-#' maak een soortenlijst op basis van de opnamen
+#' maak een soortenlijst op basis van de opname(n)
 #'
 #' De functie stelt een soortenlijst samen op basis van de standaard flora-lijst
-#' , een lijst die specifiek voor dit package werd samengesteld en (optioneel)
-#' een soortenlijst van de gebruiker.
+#' , een soortenlijst die specifiek voor dit package werd samengesteld en
+#' (optioneel) een soortenlijst van de gebruiker.#'
 #' De soortenlijst bevat alleen soortnamen die aanwezig zijn in het bestand met
-#' de opnamen.
+#' de opname(n). Naast de standaardnaam bevat de tabel ook soortinformatie die
+#' nuttig is bij het determineren van de opname(n).
+#'
 #' Deze lijst wordt bewaard in een door de gebruiker opgegeven locatie.
 #'
-#' @param naam_opnamen De naam van de tabel met de opnamen
-#' Dit is een csv-bestand.
-#' @param dir_achtergronddata De naam van de map met basisdata
-#' @param dir_invoerdata De naam van de map met de data van de gebruiker
-#' @param dir_interimdata De naam van de map waarin tussentijdse gegevens
-#' bewaard worden
-#' @importFrom dplyr bind_rows, group_by, if_else, mutate, rename, row_number,
-#' select, slice_min, ungroup
-#' @importFrom readr read_csv2
+#' @inheritParams laad_opnamen
+#' @param dir_achtergronddata String. De naam van de map met basisgegevens,
+#' zoals standaardlijsten.
+#' Standaardlijsten worden met het package meegeleverd.
+#'
+#' @importFrom assertthat assert_that is.dir
+#' @importFrom dplyr bind_rows group_by if_else mutate rename row_number
+#' select slice_min ungroup
 #' @importFrom tibble rowid_to_column
 #' @importFrom stats na.omit
 #' @importFrom rlang .data
 #' @importFrom utils read.csv2
 #' @export
-maak_soortenlijst <- function(naam_opnamen, dir_achtergronddata, dir_invoerdata,
-                              dir_interimdata) {
-  # inlezen van dataset met de opnamen
-  foutmelding <- sprintf(
-    "Bestand '%s.csv' ontbreekt in %s.", naam_opnamen, dir_invoerdata
-  )
-  df_opnamen_bron <- lees_csv2(dir_invoerdata, naam_opnamen,
-    foutboodschap = foutmelding
-  )
+
+maak_soortenlijst <- function(naam_opnamen,
+                              dir_invoerdata,
+                              dir_achtergronddata =
+                                file.path(
+                                  system.file(package = "habkey"),
+                                  "basisdata"
+                                )) {
+  # check of map dir_achtergronddata bestaat
+  assert_that(is.dir(dir_achtergronddata))
+
+  # inlezen van dataset met de opnamen (incl. foutafhandeling)
+  df_opnamen_bron <- laad_opnamen(naam_opnamen, dir_invoerdata)
 
   # inlezen van verschillende soortenlijsten
   #   standaardlijst inbo
   # zie taxonlijst_importeren() om een nieuwe standaardlijst aan te maken.
-  file_taxa <- file.path(dir_achtergronddata, "taxa.csv")
+
   foutmelding <- sprintf(
     "Bestand '%s.csv' ontbreekt in %s.", "taxa", dir_achtergronddata
   )
-  test <- file.exists(file_taxa)
-  names(test) <- foutmelding
-  stopifnot(test)
 
-  soorten_inbo <- read.csv2(file_taxa, stringsAsFactors = FALSE)
+  soorten_inbo <- lees_csv2(dir_achtergronddata, "taxa.csv",
+    foutboodschap = foutmelding
+  )
+
 
   #   soortenlijst Access
-  file_syno <- file.path(dir_achtergronddata, "specsyno.csv")
   foutmelding <- sprintf(
     "Bestand '%s.csv' ontbreekt in %s.", "specsyno", dir_achtergronddata
   )
-  test <- file.exists(file_taxa)
-  names(test) <- foutmelding
-  stopifnot(test)
 
-  soorten_acc <- read.csv2(file_syno, stringsAsFactors = FALSE)
+  soorten_acc <- lees_csv2(dir_achtergronddata, "specsyno.csv",
+    foutboodschap = foutmelding
+  )
 
   #   eigen soortenlijst
   # als die bestaat wordt deze ingeladen, anders wordt een lege tabel gemaakt.
@@ -95,7 +98,7 @@ maak_soortenlijst <- function(naam_opnamen, dir_achtergronddata, dir_invoerdata,
   # aanleiding kan geven voor een (verkeerde) nieuwe soort-melding
   bekende_namen_lower <- tolower(na.omit(bekende_namen_raw))
 
-  # we herhalen dit maar nu alleen voor de namen van de officiële inbo-lijst
+  # we herhalen dit maar nu alleen voor de namen van de officiele inbo-lijst
   officiele_taxa_lower <- tolower(unique(soorten_inbo$taxon))
 
   # soortnamen ophalen uit de opnamen
@@ -105,11 +108,12 @@ maak_soortenlijst <- function(naam_opnamen, dir_achtergronddata, dir_invoerdata,
 
   # nolint start
   soorten_eigen <-
-    check_vegetatienamen(soorten_opg,
+    check_soortnamen(
+      custom_taxa = soorten_eigen,
+      soorten_opg,
       bekende_namen_lower = bekende_namen_lower,
       officiele_taxa_lower = officiele_taxa_lower,
       prefix_id = prefix_id,
-      custom_taxa = soorten_eigen,
       laatste_nummer = laatste_nummer,
       file_custom = file_custom
     )
@@ -159,8 +163,8 @@ maak_soortenlijst <- function(naam_opnamen, dir_achtergronddata, dir_invoerdata,
       is_lichen = if_else(.data$taxon_group == "LI", 1, 0),
       is_kranswier = if_else(.data$taxon_group == "CH", 1, 0)
     ) |>
-    mutate(soortnr = .data$soortnr_max + row_number()) |>
-    select("-taxon_group")
+    mutate(soortnr = soortnr_max + row_number()) |>
+    select(-"taxon_group")
 
   toon <- soorten$speciesnaam[!soorten$speciesnaam %in% soorten_inbo$tax_orig]
   if (length(toon) > 0) {
@@ -190,13 +194,13 @@ maak_soortenlijst <- function(naam_opnamen, dir_achtergronddata, dir_invoerdata,
   # Package-lijst
   soorten <- soorten |>
     bind_rows(soorten_extra_opg) |>
-    group_by(speciesnaam) |>
-    slice_min(order_by = soortnr) |>
+    group_by(.data$speciesnaam) |>
+    slice_min(order_by = .data$soortnr) |>
     ungroup() |>
-    select(-id)
+    select(-.data$id)
 
-  # bewaren van het resultaat
-  write_csv2(soorten, file.path(dir_interimdata, "soorten.csv"))
+  # bewaren van het resultaat in tijdelijke omgeving
+  bewaar_interim_data(soorten, "soorten")
 
   return(soorten)
 }

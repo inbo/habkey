@@ -1,22 +1,22 @@
-#' lees een csv2-bestand in
+#' lees een csv-bestand in
 #'
-#' Hulpfunctie om csv-bestanden (met ';' als kolomscheidingsteken) met read_csv2
-#' in te lezen. Er wordt gecontroleerd of het bestand bestaat en van het juiste
-#' type is.
+#' Hulpfunctie om csv-bestanden met ';' als kolomscheidingsteken met
+#' readr::read_csv2 in te lezen. Er wordt gecontroleerd of het bestand bestaat
+#' en van het juiste type is.
 #' @param map De naam van de map waarin het bestand zit
 #' @param bestand De naam van het csv-bestand
 #' @param foutboodschap De boodschap die vermeld wordt,
 #' als het bestand ontbreekt.
 #' @inheritParams readr::read_delim
 #' @importFrom readr read_csv2
-#' @importFrom base file.path
 
 lees_csv2 <- function(map, bestand,
                       foutboodschap = NULL, col_types = NULL) {
   pad <- file.path(map, bestand)
   # 1. Controle op bestaan van bestand
   if (is.null(foutboodschap)) {
-    foutboodschap <- paste("Kritieke fout: Bestand", bestand, "ontbreekt in map", map)
+    foutboodschap <-
+      paste("Kritieke fout: Bestand", bestand, "ontbreekt in map", map)
   }
   if (!file.exists(pad)) {
     stop(foutboodschap)
@@ -39,8 +39,8 @@ lees_csv2 <- function(map, bestand,
 
   # Inlezen van het bestand
   if (is.null(col_types)) {
-    return(read_csv2(pad, show_col_types = FALSE))
+    return(suppressMessages(read_csv2(pad, show_col_types = FALSE)))
   } else {
-    return(read_csv2(pad, col_types = col_types))
+    return(suppressMessages(read_csv2(pad, col_types = col_types)))
   }
 }
