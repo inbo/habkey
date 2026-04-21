@@ -1,0 +1,60 @@
+soortnr;speciesnaam;wet_naam;vaatplant;is_gras;is_boomstruik;is_dwergstruik;is_hogeplant;is_meerjarigkruid;is_schijngras;is_jarig;is_invasieve_exoot;is_mos;is_lichen;is_kranswier;link_bbr;link_bryoatt;link_hill;hoogte_max;is_bossoort;l_waarde;genus_ori;species_ori;subspecies_ori;genus;species;subspecies;specieszonderauteur_ori;specieszonderauteur;l_getal;r_getal;f_getal;n_getal;s_getal;taxontype_id;niet_in_florabank
+3;Acer platanoides L.;Acer platanoides L.;1;0;1;0;0;0;0;0;0;0;0;0;1850;NA;147;3000;0;4;Acer;platanoides;NA;Acer;platanoides;NA;Acer platanoides;Acer platanoides;4;7;5;7;0;9;0
+4;Acer pseudoplatanus L.;Acer pseudoplatanus L.;1;0;1;0;0;0;0;0;0;0;0;0;2;NA;148;2500;0;4;Acer;pseudoplatanus;NA;Acer;pseudoplatanus;NA;Acer pseudoplatanus;Acer pseudoplatanus;4;6;5;6;0;9;0
+5;Achillea millefolium L.;Achillea millefolium L.;1;0;0;0;0;1;0;0;0;0;0;0;4;NA;150;50;0;7;Achillea;millefolium;NA;Achillea;millefolium;NA;Achillea millefolium;Achillea millefolium;7;6;5;4;1;9;0
+6;Aegopodium podagraria L.;Aegopodium podagraria L.;1;0;0;0;0;1;0;0;0;0;0;0;11;NA;158;90;0;6;Aegopodium;podagraria;NA;Aegopodium;podagraria;NA;Aegopodium podagraria;Aegopodium podagraria;6;6;5;7;0;9;0
+7;Agrostis stolonifera L.;Agrostis stolonifera L.;1;1;0;0;0;0;0;0;0;0;0;0;18;NA;22;40;0;7;Agrostis;stolonifera;NA;Agrostis;stolonifera;NA;Agrostis stolonifera;Agrostis stolonifera;7;7;6;6;1;9;0
+8;Alnus glutinosa (L.) Gaertn.;Alnus glutinosa (L.) Gaertn.;1;0;1;0;0;0;0;0;0;0;0;0;36;NA;71;2400;0;5;Alnus;glutinosa;NA;Alnus;glutinosa;NA;Alnus glutinosa;Alnus glutinosa;5;6;8;6;0;9;0
+9;Alopecurus pratensis L.;Alopecurus pratensis L.;1;1;0;0;0;0;0;0;0;0;0;0;42;NA;78;120;0;7;Alopecurus;pratensis;NA;Alopecurus;pratensis;NA;Alopecurus pratensis;Alopecurus pratensis;7;6;5;7;0;9;0
+1;Angelica sylvestris L.;Angelica sylvestris L.;1;0;0;0;1;1;0;0;0;0;0;0;60;NA;93;180;0;7;Angelica;sylvestris;NA;Angelica;sylvestris;NA;Angelica sylvestris;Angelica sylvestris;7;6;8;5;0;9;0
+2;Arrhenatherum elatius (L.) Beauv. ex J. et C. Presl;Arrhenatherum elatius (L.) Beauv. ex J. et C. Presl;1;1;0;0;1;0;0;0;0;0;0;0;96;NA;45;150;0;7;Arrhenatherum;elatius;NA;Arrhenatherum;elatius;NA;Arrhenatherum elatius;Arrhenatherum elatius;7;7;5;7;0;9;0
+10;Bromus hordeaceus L.;Bromus hordeaceus L.;1;1;0;0;0;0;0;1;0;0;0;0;2337;NA;199;100;0;8;Bromus;hordeaceus;NA;Bromus;hordeaceus;NA;Bromus hordeaceus;Bromus hordeaceus;8;7;4;4;0;9;0
+11;Calystegia sepium (L.) R. Brown;Convolvulus sepium L.;1;0;0;0;1;1;0;0;0;0;0;0;188;NA;227;300;0;7;Calystegia;sepium;NA;Convolvulus;sepium;NA;Calystegia sepium;Convolvulus sepium;7;7;8;7;1;9;0
+12;Cardamine pratensis L.;Cardamine pratensis L.;1;0;0;0;0;1;0;0;0;0;0;0;205;NA;242;50;0;7;Cardamine;pratensis;NA;Cardamine;pratensis;NA;Cardamine pratensis;Cardamine pratensis;7;5;8;4;0;9;0
+13;Carex acuta L.;Carex acuta L.;1;0;0;0;0;0;1;0;0;0;0;0;211;NA;246;150;0;7;Carex;acuta;NA;Carex;acuta;NA;Carex acuta;Carex acuta;7;7;9;5;0;9;0
+14;Carex disticha Huds.;Carex disticha Huds.;1;0;0;0;0;0;1;0;0;0;0;0;225;NA;265;100;0;7;Carex;disticha;NA;Carex;disticha;NA;Carex disticha;Carex disticha;7;6;8;4;0;9;0
+15;Centaurea jacea L.;Centaurea jacea L.;1;0;0;0;0;1;0;0;0;0;0;0;1766;NA;1792;120;0;7;Centaurea;jacea;NA;Centaurea;jacea;NA;Centaurea jacea;Centaurea jacea;7;6;5;5;0;9;0
+16;Cirsium arvense (L.) Scop.;Cirsium arvense (L.) Scop.;1;0;0;0;1;1;0;0;0;0;0;0;331;NA;385;120;0;8;Cirsium;arvense;NA;Cirsium;arvense;NA;Cirsium arvense;Cirsium arvense;8;7;6;6;0;9;0
+17;Cirsium oleraceum (L.) Scop.;Cirsium oleraceum (L.) Scop.;1;0;0;0;1;1;0;0;0;0;0;0;334;NA;1804;150;0;6;Cirsium;oleraceum;NA;Cirsium;oleraceum;NA;Cirsium oleraceum;Cirsium oleraceum;6;7;7;5;0;9;0
+18;Dactylis glomerata L.;Dactylis glomerata L.;1;1;0;0;1;0;0;0;0;0;0;0;390;NA;464;90;0;7;Dactylis;glomerata;NA;Dactylis;glomerata;NA;Dactylis glomerata;Dactylis glomerata;7;7;5;6;0;9;0
+19;Elymus repens (L.) Gould;Elytrigia repens (L.) Desv. ex Nevski;1;1;0;0;0;0;0;0;0;0;0;0;446;NA;532;120;0;7;Elymus;repens;NA;Elytrigia;repens;NA;Elymus repens;Elytrigia repens;7;7;5;7;2;9;0
+20;Epilobium hirsutum L.;Epilobium hirsutum L.;1;0;0;0;1;1;0;0;0;0;0;0;451;NA;538;150;0;7;Epilobium;hirsutum;NA;Epilobium;hirsutum;NA;Epilobium hirsutum;Epilobium hirsutum;7;7;8;7;0;9;0
+21;Epilobium montanum L.;Epilobium montanum L.;1;0;0;0;0;1;0;0;0;0;0;0;454;NA;540;80;1;6;Epilobium;montanum;NA;Epilobium;montanum;NA;Epilobium montanum;Epilobium montanum;6;6;6;6;0;9;0
+22;Eupatorium cannabinum L.;Eupatorium cannabinum L.;1;0;0;0;1;1;0;0;0;0;0;0;490;NA;592;150;0;7;Eupatorium;cannabinum;NA;Eupatorium;cannabinum;NA;Eupatorium cannabinum;Eupatorium cannabinum;7;6;8;7;0;9;0
+23;Filipendula ulmaria (L.) Maxim.;Filipendula ulmaria (L.) Maxim.;1;0;0;0;1;1;0;0;0;0;0;0;526;NA;653;120;0;7;Filipendula;ulmaria;NA;Filipendula;ulmaria;NA;Filipendula ulmaria;Filipendula ulmaria;7;6;8;5;0;9;0
+24;Fraxinus excelsior L.;Fraxinus excelsior L.;1;0;1;0;0;0;0;0;0;0;0;0;531;NA;660;4000;0;5;Fraxinus;excelsior;NA;Fraxinus;excelsior;NA;Fraxinus excelsior;Fraxinus excelsior;5;7;6;6;0;9;0
+25;Galium aparine L.;Galium aparine L.;1;0;0;0;0;0;0;1;0;0;0;0;546;NA;684;120;0;6;Galium;aparine;NA;Galium;aparine;NA;Galium aparine;Galium aparine;6;7;6;8;0;9;0
+26;Geranium robertianum L.;Geranium robertianum L.;1;0;0;0;0;1;0;0;0;0;0;0;576;NA;721;60;1;5;Geranium;robertianum;NA;Geranium;robertianum;NA;Geranium robertianum;Geranium robertianum;5;6;6;6;0;9;0
+27;Geum urbanum L.;Geum urbanum L.;1;0;0;0;0;1;0;0;0;0;0;0;579;NA;726;60;1;4;Geum;urbanum;NA;Geum;urbanum;NA;Geum urbanum;Geum urbanum;4;7;6;7;0;9;0
+28;Glechoma hederacea L.;Glechoma hederacea L.;1;0;0;0;0;1;0;0;0;0;0;0;582;NA;731;60;1;6;Glechoma;hederacea;NA;Glechoma;hederacea;NA;Glechoma hederacea;Glechoma hederacea;6;7;6;7;0;9;0
+29;Glyceria notata Chevall.;Glyceria notata Chevall.;1;1;0;0;0;0;0;0;0;0;0;0;586;NA;735;75;0;7;Glyceria;notata;NA;Glyceria;notata;NA;Glyceria notata;Glyceria notata;7;6;10;7;0;9;0
+30;Hedera helix L.;Hedera helix L.;1;0;0;0;0;1;0;0;0;0;0;0;598;NA;748;1200;1;4;Hedera;helix;NA;Hedera;helix;NA;Hedera helix;Hedera helix;4;7;5;6;0;9;0
+31;Holcus lanatus L.;Holcus lanatus L.;1;1;0;0;0;0;0;0;0;0;0;0;631;NA;770;90;0;7;Holcus;lanatus;NA;Holcus;lanatus;NA;Holcus lanatus;Holcus lanatus;7;6;6;5;0;9;0
+32;Humulus lupulus L.;Humulus lupulus L.;1;0;0;0;1;1;0;0;0;0;0;0;639;NA;782;450;0;6;Humulus;lupulus;NA;Humulus;lupulus;NA;Humulus lupulus;Humulus lupulus;6;7;7;8;0;9;0
+33;Iris pseudacorus L.;Iris pseudacorus L.;1;0;0;0;0;1;0;0;0;0;0;0;665;NA;821;120;0;7;Iris;pseudacorus;NA;Iris;pseudacorus;NA;Iris pseudacorus;Iris pseudacorus;7;6;9;6;1;9;0
+34;Lathyrus nissolia L.;Lathyrus nissolia L.;1;0;0;0;0;0;0;1;0;0;0;0;713;NA;883;90;0;8;Lathyrus;nissolia;NA;Lathyrus;nissolia;NA;Lathyrus nissolia;Lathyrus nissolia;8;7;6;6;0;9;0
+35;Lolium perenne L.;Lolium perenne L.;1;1;0;0;0;0;0;0;0;0;0;0;756;NA;951;90;0;8;Lolium;perenne;NA;Lolium;perenne;NA;Lolium perenne;Lolium perenne;8;6;5;6;0;9;0
+59;Lotus corniculatus L. subsp. corniculatus;Lotus corniculatus L. subsp. corniculatus;1;0;0;0;0;1;0;0;0;0;0;0;761;NA;NA;40;0;7;Lotus;corniculatus;subsp. corniculatus;Lotus;corniculatus;subsp. corniculatus;Lotus corniculatus subsp. corniculatus;Lotus corniculatus subsp. corniculatus;7;7;4;3;0;22;0
+36;Mentha aquatica L.;Mentha aquatica L.;1;0;0;0;0;1;0;0;0;0;0;0;813;NA;1019;90;0;7;Mentha;aquatica;NA;Mentha;aquatica;NA;Mentha aquatica;Mentha aquatica;7;7;8;5;0;9;0
+37;Myosotis scorpioides L.;Myosotis scorpioides L.;1;0;0;0;0;1;0;0;0;0;0;0;844;NA;1056;45;0;7;Myosotis;scorpioides;NA;Myosotis;scorpioides;NA;Myosotis scorpioides;Myosotis scorpioides;7;6;9;6;0;9;0
+38;Oenanthe aquatica (L.) Poiret;Oenanthe aquatica (L.) Poiret;1;0;0;0;0;1;0;0;0;0;0;0;868;NA;1082;120;0;7;Oenanthe;aquatica;NA;Oenanthe;aquatica;NA;Oenanthe aquatica;Oenanthe aquatica;7;7;10;6;0;9;0
+39;Oenanthe fistulosa L.;Oenanthe fistulosa L.;1;0;0;0;0;1;0;0;0;0;0;0;869;NA;1084;70;0;7;Oenanthe;fistulosa;NA;Oenanthe;fistulosa;NA;Oenanthe fistulosa;Oenanthe fistulosa;7;7;9;6;0;9;0
+40;Plantago lanceolata L.;Plantago lanceolata L.;1;0;0;0;0;1;0;0;0;0;0;0;946;NA;1210;45;0;7;Plantago;lanceolata;NA;Plantago;lanceolata;NA;Plantago lanceolata;Plantago lanceolata;7;6;5;4;0;9;0
+41;Poa trivialis L.;Poa trivialis L.;1;1;0;0;0;0;0;0;0;0;0;0;959;NA;1229;100;0;7;Poa;trivialis;NA;Poa;trivialis;NA;Poa trivialis;Poa trivialis;7;6;6;6;0;9;0
+42;Polygonum persicaria L.;Persicaria maculosa S.F. Gray;1;0;0;0;0;0;0;1;0;0;0;0;977;NA;1163;100;0;7;Polygonum;persicaria;NA;Persicaria;maculosa;NA;Polygonum persicaria;Persicaria maculosa;7;6;6;7;0;9;0
+43;Populus x canadensis Moench;Populus ×canadensis Moench;1;0;1;0;0;0;0;0;0;0;0;0;2254;NA;NA;2400;0;NA;Populus;x canadensis;NA;Populus;×canadensis;NA;Populus x canadensis;Populus ×canadensis;NA;NA;NA;NA;NA;18;0
+44;Potentilla anserina L.;Argentina anserina (L.) Rydb.;1;0;0;0;0;1;0;0;0;0;0;0;1006;NA;1280;30;0;8;Potentilla;anserina;NA;Argentina;anserina;NA;Potentilla anserina;Argentina anserina;8;7;7;6;2;9;0
+45;Ranunculus acris L.;Ranunculus acris L.;1;0;0;0;0;1;0;0;0;0;0;0;1040;NA;1326;90;0;7;Ranunculus;acris;NA;Ranunculus;acris;NA;Ranunculus acris;Ranunculus acris;7;6;6;4;0;9;0
+46;Ranunculus repens L.;Ranunculus repens L.;1;0;0;0;0;1;0;0;0;0;0;0;1056;NA;1345;50;0;6;Ranunculus;repens;NA;Ranunculus;repens;NA;Ranunculus repens;Ranunculus repens;6;6;7;7;0;9;0
+47;Rubus fruticosus groep;Rubus fruticosus groep;1;0;0;0;1;1;0;0;0;0;0;0;1634;NA;NA;150;1;NA;Rubus;fruticosus;groep;Rubus;fruticosus;groep;Rubus fruticosus groep;Rubus fruticosus groep;NA;NA;NA;NA;NA;5;0
+48;Rumex conglomeratus Murray;Rumex conglomeratus Murray;1;0;0;0;1;1;0;0;0;0;0;0;1097;NA;1396;100;0;8;Rumex;conglomeratus;NA;Rumex;conglomeratus;NA;Rumex conglomeratus;Rumex conglomeratus;8;7;8;7;0;9;0
+49;Rumex crispus L.;Rumex crispus L.;1;0;0;0;1;1;0;0;0;0;0;0;1098;NA;1397;150;0;8;Rumex;crispus;NA;Rumex;crispus;NA;Rumex crispus;Rumex crispus;8;7;6;6;2;9;0
+50;Silaum silaus (L.) Schinz et Thell.;Silaum silaus (L.) Schinz et Thell.;1;0;0;0;0;1;0;0;0;0;0;0;1200;NA;1524;90;0;8;Silaum;silaus;NA;Silaum;silaus;NA;Silaum silaus;Silaum silaus;8;7;5;4;0;9;0
+51;Solanum dulcamara L.;Solanum dulcamara L.;1;0;0;0;1;1;0;0;0;0;0;0;1218;NA;1546;200;0;7;Solanum;dulcamara;NA;Solanum;dulcamara;NA;Solanum dulcamara;Solanum dulcamara;7;7;8;7;0;9;0
+52;Stachys sylvatica L.;Stachys sylvatica L.;1;0;0;0;0;1;0;0;0;0;0;0;1246;NA;1600;100;1;6;Stachys;sylvatica;NA;Stachys;sylvatica;NA;Stachys sylvatica;Stachys sylvatica;6;7;6;8;0;9;0
+53;Symphytum officinale L.;Symphytum officinale L.;1;0;0;0;1;1;0;0;0;0;0;0;1259;NA;1616;100;0;7;Symphytum;officinale;NA;Symphytum;officinale;NA;Symphytum officinale;Symphytum officinale;7;7;7;8;0;9;0
+54;Taraxacum;Taraxacum;1;0;0;0;0;1;0;0;0;0;0;0;6517;NA;NA;NA;0;NA;Taraxacum;NA;NA;Taraxacum;NA;NA;Taraxacum;Taraxacum;NA;NA;NA;NA;NA;12;0
+55;Trifolium pratense L.;Trifolium pratense L.;1;0;0;0;0;1;0;0;0;0;0;0;1305;NA;1671;50;0;7;Trifolium;pratense;NA;Trifolium;pratense;NA;Trifolium pratense;Trifolium pratense;7;7;5;5;0;9;0
+56;Urtica dioica L.;Urtica dioica L.;1;0;0;0;1;1;0;0;0;0;0;0;1321;NA;1700;300;0;6;Urtica;dioica;NA;Urtica;dioica;NA;Urtica dioica;Urtica dioica;6;7;6;8;0;9;0
+57;Vicia hirsuta (L.) S.F. Gray;Ervilia hirsuta (L.) Opiz;1;0;0;0;0;0;0;1;0;0;0;0;1370;NA;1752;60;0;7;Vicia;hirsuta;NA;Ervilia;hirsuta;NA;Vicia hirsuta;Ervilia hirsuta;7;6;5;6;0;9;0
+58;Vicia sativa L.;Vicia sativa L.;1;0;0;0;0;0;0;1;0;0;0;0;1960;NA;1757;100;0;7;Vicia;sativa;NA;Vicia;sativa;NA;Vicia sativa;Vicia sativa;7;7;4;4;0;9;0

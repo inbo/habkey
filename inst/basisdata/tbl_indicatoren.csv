@@ -1,0 +1,390 @@
+"id";"hrl_code";"criterium_naam";"criterium_nr";"aard";"code_lijst";"soortenlijstnr";"veldnaam"
+599;"rbbHc";"Sleutelsoorten";852;"aantal";"Sleutelsoorten";440;"AantalSleutelsoorten"
+600;"rbbHc";"Sleutelsoorten";853;"bedekking";"Sleutelsoorten";440;"BedekkingSleutelsoorten"
+601;"rbbHc";"Verdroging";854;"bedekking";"Verdroging";441;"DroogBedekking"
+602;"rbbHc";"Soortenrijkdom";855;"soortenaantal";;;
+603;"rbbHc";"Gras_kruiden-ratio";856;"gras_kruiden-ratio";;;
+604;"rbbHc";"Verdroging";857;"F-getal";;;
+605;"rbbHc";"Vernatting";858;"F-getal";;;
+606;"rbbHc";"Eutrofiëring";859;"N-getal";;;
+607;"rbbHc";"Verruiging";860;"bedekking";"Verruiging";442;"RuigteBedekking"
+608;"rbbHc";"Verbossing";861;"bedekking boomlaag";;;
+609;"rbbHc";"Vernatting";862;"bedekking";"Vernatting";443;"NatBedekking"
+610;"rbbHc";"Eutrofiëring";863;"bedekking";"Eutrofiëring";444;"EutroBedekking"
+611;"rbbHc";"Ruderalisering";864;"bedekking";"Ruderalisering";445;"RuderalBedekking"
+612;"rbbHc";"Pitrus";865;"bedekking";"Pitrus";446;"PitrusBedekking"
+613;"rbbHc";"Verbraming";866;"bedekking";"Verbraming";447;"BraamBedekking"
+614;"rbbHc";"Vernatting (gn zegge";867;"bedekking";"Vernatting (gn zegge";448;"NatMinZeggeBedekking"
+615;"rbbVos";"Verbraming";868;"bedekking";"Verbraming";449;
+616;"rbbVos";"Bodemroering";869;"bedekking";"Bodemroering";450;"RuderalBedekking"
+617;"rbbVos";"Pitrus";870;"bedekking";"Pitrus";451;"PitrusBedekking"
+618;"rbbVos";"Eutrofiëring";871;"bedekking";"Eutrofiëring";452;"EutroBedekking"
+619;"rbbVos";"Verruiging";872;"bedekking";"Verruiging";453;"RuigteBedekking"
+620;"rbbVos";"Droogtegroep Ellenb";873;"bedekking";;;"DroogEllenb_bedekking"
+621;"rbbVos";"Droogtegroep Ellenb";874;"aantal";;;"DroogEllenb_aantal"
+622;"rbbVos";"Vochtgroep Ellenb";894;"bedekking";;;"VochtigEllenb_bedekking"
+623;"rbbVos";"Nattegroep Ellenb";876;"aantal";;;"NatEllenb_aantal"
+624;"rbbVos";"SleutelsoortenStart";877;"bedekking";"SleutelsoortenStart";454;"BedekkingSleutelsoortenStart"
+625;"rbbVos";"SleutelsoortenStart";878;"aantal";"SleutelsoortenStart";454;"AantalSleutelsoortenStart"
+626;"rbbVos";"Droogtegroep_sleutel";879;"bedekking";"Droogtegroep_sleutel";455;"DroogteSleutel_bedekking"
+627;"rbbVos";"Droogtegroep_sleutel";880;"aantal";"Droogtegroep_sleutel";455;"DroogteSleutel_aantal"
+628;"rbbVos";"Vochtgroep_sleutel";881;"bedekking";"Vochtgroep_sleutel";456;"VochtSleutel_bedekking"
+629;"rbbVos";"Vochtgroep_sleutel";882;"aantal";"Vochtgroep_sleutel";456;"VochtSleutel_aantal"
+630;"G";"Grvos_trosdravik";883;"bedekking";"Grvos_trosdravik";457;
+631;"rbbVos";"basenminnend";884;"aantal";"basenminnend";458;"basenminnend_aantal"
+632;"rbbVos";"hc-groep";885;"aantal";"hc-groep";459;"hc_aantal"
+633;"rbbVos";"hc-groep";886;"bedekking";"hc-groep";468;"hc_bedekking"
+634;"rbbVos";"hu-groep";887;"aantal";"hu-groep";460;"hu_aantal"
+635;"rbbVos";"hu-groep";888;"bedekking";"hu-groep";460;"hu_bedekking"
+636;"rbbVos";"hu-kerngroep";889;"aantal";"hu-kerngroep";461;"hukern_aantal"
+637;"rbbVos";"hu-kerngroep";890;"bedekking";"hu-kerngroep";461;"hukern_bedekking"
+638;"rbbVos";"hua-groep";891;"bedekking";"hua-groep";462;"hua_bedekking"
+639;"rbbVos";"hua-kerngroep";892;"aantal";"hua-kerngroep";463;"huakern_aantal"
+640;"rbbVos";"rbbZil-groep";893;"bedekking";"rbbZil-groep";467;"rbbzil_bedekking"
+641;"rbbVos";"Nattegroep";875;"bedekking";;;"NatEllenb_bedekking"
+642;"rbbVos";"rbbZil-groep";895;"aantal";"rbbZil-groep";464;"rbbzil_aantal"
+643;"rbbVos";"moeras-groep";896;"bedekking";"moeras-groep";466;"moeras_bedekking"
+644;"rbbVos";"Sleutelsoorten";897;"bedekking";"Sleutelsoorten";469;"BedekkingSleutelsoorten"
+645;"rbbVos";"nattegroep";898;"bedekking";"nattegroep";470;"nattegroep_bedekking"
+646;"rbbVos";"Beweiding";899;"bedekking";"Beweiding";471;"Beweiding_bedekking"
+647;"rbbVos";"Verdroging";900;"bedekking";"Verdroging";472;"DroogBedekking"
+648;"rbbVos";"Vernatting";901;"bedekking";"Vernatting";473;"NatBedekking"
+649;"rbbVos";"Sleutelsoorten";902;"aantal";"Sleutelsoorten";469;"AantalSleutelsoorten"
+650;"rbbZil";"SleutelsoortenStart";903;"bedekking";"SleutelsoortenStart";474;"BedekkingSleutelsoortenStart"
+651;"rbbZil";"SleutelsoortenStart";904;"aantal";"SleutelsoortenStart";474;"AantalSleutelsoortenStart"
+652;"rbbZil";"ziltegroep";905;"bedekking";"ziltegroep";475;"ZilteGroepBedekking"
+653;"rbbZil";"ziltegroep";906;"aantal";"ziltegroep";475;"ZilteGroepAantal"
+654;"rbbZil";"hc-groep";907;"aantal";"hc-groep";459;"HcAantal"
+655;"rbbZil";"hc-groep";908;"bedekking";"hc-groep";468;"HcBedekking"
+656;"rbbZil";"hu-groep";909;"aantal";"hu-groep";460;"HuAantal"
+657;"rbbZil";"hu-groep";910;"bedekking";"hu-groep";460;"HuBedekking"
+658;"rbbZil";"rbbVos-groep";911;"aantal";"rbbVos-groep";469;"rbbVosAantal"
+659;"rbbZil";"rbbVos-groep";912;"bedekking";"rbbVos-groep";469;"rbbVosBedekking"
+660;"rbbZil";"moeras-groep";913;"bedekking";"moeras-groep";466;"MoerasBedekking"
+661;"rbbZil";"hf-groep";915;"bedekking";"hf-groep";480;"HfBedekking"
+664;"rbbZil";"hu-kerngroep";916;"aantal";"hu-kerngroep";461;"Hukern_aantal"
+665;"rbbZil";"hu-kerngroep";917;"bedekking";"hu-kerngroep";461;"Hukern_bedekking"
+666;"rbbZil";"GrVos_trosdravik";918;"bedekking";"GrVos_trosdravik";457;"GrVosBedekking"
+667;"rbbZil";"Vernatting";919;"bedekking";"Vernatting";481;"NatBedekking"
+668;"rbbZil";"Bodemroering";920;"bedekking";"Bodemroering";482;"RuderalBedekking"
+669;"rbbZil";"Pitrus";921;"bedekking";"Pitrus";483;"PitrusBedekking"
+670;"rbbZil";"Eutrofiëring";922;"bedekking";"Eutrofiëring";484;"EutroBedekking"
+671;"rbbZil";"Verruiging";923;"bedekking";"Verruiging";485;"RuigteBedekking"
+673;"rbbZil";"Verdroging";924;"bedekking";"Verdroging";486;"DroogBedekking"
+674;"rbbKam";"SleutelsoortenStart";925;"bedekking";"SleutelsoortenStart";487;"BedekkingSleutelsoortenStart"
+675;"rbbKam";"SleutelsoortenStart";926;"aantal";"SleutelsoortenStart";487;"AantalSleutelsoortenStart"
+676;"rbbKam";"ziltegroep";927;"bedekking";"ziltegroep";475;"ZilteGroepBedekking"
+677;"rbbKam";"ziltegroep";928;"aantal";"ziltegroep";475;"ZilteGroepAantal"
+678;"rbbKam";"hc-groep";929;"aantal";"hc-groep";459;"HcAantal"
+679;"rbbKam";"hc-groep";930;"bedekking";"hc-groep";468;"HcBedekking"
+680;"rbbKam";"hu-groep";931;"aantal";"hu-groep";460;"HuAantal"
+681;"rbbKam";"hu-groep";932;"bedekking";"hu-groep";460;"HuBedekking"
+682;"rbbKam";"rbbVos-groep";933;"aantal";"rbbVos-groep";469;"rbbVosAantal"
+683;"rbbKam";"rbbVos-groep";934;"bedekking";"rbbVos-groep";469;"rbbVosBedekking"
+684;"rbbKam";"moeras-groep";935;"bedekking";"moeras-groep";466;"MoerasBedekking"
+685;"rbbKam";"hf-groep";936;"bedekking";"hf-groep";480;"HfBedekking"
+686;"rbbKam";"hu-kerngroep";937;"aantal";"hu-kerngroep";461;"Hukern_aantal"
+687;"rbbKam";"hu-kerngroep";938;"bedekking";"hu-kerngroep";461;"Hukern_bedekking"
+688;"rbbKam";"GrVos_trosdravik";939;"bedekking";"GrVos_trosdravik";457;"GrVosBedekking"
+690;"rbbKam";"Bodemroering";941;"bedekking";"Bodemroering";488;"RuderalBedekking"
+691;"rbbKam";"Pitrus";942;"bedekking";"Pitrus";489;"PitrusBedekking"
+692;"rbbKam";"Eutrofiëring";943;"bedekking";"Eutrofiëring";490;"EutroBedekking"
+693;"rbbKam";"Verruiging";944;"bedekking";"Verruiging";491;"RuigteBedekking"
+695;"rbbKam";"EutrofiëringSterk";946;"bedekking";"Eutrofiëring";492;"EutroSterkBedekking"
+696;"rbbZil";"Verbraming";947;"bedekking";"Verbraming";447;
+697;"rbbKam";"Verbraming";948;"bedekking";"Verbraming";447;
+698;"rbbKam";"rbbZil-groep";949;"aantal";"rbbZil-groep";464;"rbbZilAantal"
+699;"rbbKam";"rbbZil-groep";950;"bedekking";"rbbZil-groep";467;"rbbZilBedekking"
+700;"rbbHf";"Bodemroering";951;"bedekking";"Bodemroering";493;"RuderalBedekking"
+701;"rbbHf";"Pitrus";952;"bedekking";"Pitrus";494;"PitrusBedekking"
+702;"rbbHf";"Eutrofiëring";953;"bedekking";"Eutrofiëring";495;"EutroBedekking"
+704;"rbbHf";"Verbraming";955;"bedekking";"Verbraming";447;"BraamBedekking"
+705;"rbbHf";"moeras-groep";956;"bedekking";"moeras-groep";466;"MoerasBedekking"
+706;"rbbHf";"ziltegroep";957;"bedekking";"ziltegroep";475;"ZilteGroepBedekking"
+707;"rbbHf";"ziltegroep";958;"aantal";"ziltegroep";475;"ZilteGroepAantal"
+708;"rbbHf";"SleutelsoortenStart";959;"bedekking";"SleutelsoortenStart";497;"BedekkingSleutelsoortenStart"
+709;"rbbHf";"SleutelsoortenStart";960;"aantal";"SleutelsoortenStart";497;"AantalSleutelsoortenStart"
+710;"rbbHf";"Vernatting";961;"bedekking";"Vernatting";498;"VernattingBedekking"
+711;"rbbHf";"Verdroging";962;"bedekking";"Verdroging";499;"VerdrogingBedekking"
+712;"rbbHf";"hc-groep";963;"aantal";"hc-groep";459;"HcAantal"
+713;"rbbHf";"hc-groep";964;"bedekking";"hc-groep";468;"HcBedekking"
+714;"rbbHf";"hu-kerngroep";965;"aantal";"hu-kerngroep";461;"Hukern_aantal"
+715;"rbbHf";"hu-kerngroep";966;"bedekking";"hu-kerngroep";461;"Hukern_bedekking"
+716;"rbbHf";"GrVos_trosdravik";967;"bedekking";"GrVos_trosdravik";457;"GrVosBedekking"
+717;"rbbHf";"hu-groep";968;"aantal";"hu-groep";460;"HuAantal"
+718;"rbbHf";"hu-groep";969;"bedekking";"hu-groep";460;"HuBedekking"
+719;"rbbHf";"invasieve exoten";970;"bedekking";"invasieve exoten";500;"InvasieveExotenBedekking"
+720;"rbbHf";"rbbZil-groep";971;"aantal";"rbbZil-groep";464;"rbbZilAantal"
+721;"rbbHf";"rbbZil-groep";972;"bedekking";"rbbZil-groep";467;"rbbZilBedekking"
+722;"rbbHf";"rbbVos-groep";973;"aantal";"rbbVos-groep";469;"rbbVosAantal"
+723;"rbbHf";"rbbVos-groep";974;"bedekking";"rbbVos-groep";469;"rbbVosBedekking"
+724;"rbbHf";"Sleutelsoorten";975;"bedekking";"Sleutelsoorten";501;"BedekkingSleutelsoorten"
+725;"rbbHf";"Sleutelsoorten";976;"aantal";"Sleutelsoorten";501;"AantalSleutelsoorten"
+726;"rbbZil";"Sleutelsoorten";977;"bedekking";"Sleutelsoorten";502;"BedekkingSleutelsoorten"
+727;"rbbZil";"Sleutelsoorten";978;"aantal";"Sleutelsoorten";502;"AantalSleutelsoorten"
+728;"rbbZil";"SleutelsoortenAgrost";979;"bedekking";"SleutelsoortenAgrost";503;"BedekkingSleutelsoortenAgrosti"
+729;"Ha";"SleutelsoortenStart";980;"bedekking";"SleutelsoortenStart";521;"BedekkingSleutelsoortenStart"
+730;"Ha";"SleutelsoortenStart";981;"aantal";"SleutelsoortenStart";504;"AantalSleutelsoortenStart"
+731;"Ha";"hn-groep";982;"bedekking";"hn-groep";505;"HnBedekking"
+732;"Ha";"hn-groep";983;"aantal";"hn-groep";505;"HnAantal"
+733;"Ha";"hc-groep";984;"aantal";"hc-groep";459;"HcAantal"
+734;"Ha";"hc-groep";985;"bedekking";"hc-groep";468;"HcBedekking"
+735;"Ha";"hu-groep";986;"aantal";"hu-groep";460;"HuAantal"
+736;"Ha";"hu-groep";987;"bedekking";"hu-groep";460;"HuBedekking"
+737;"Ha";"rbbVos-groep";988;"aantal";"rbbVos-groep";469;"rbbVosAantal"
+738;"Ha";"rbbVos-groep";989;"bedekking";"rbbVos-groep";469;"rbbVosBedekking"
+739;"Ha";"hu-kerngroep";992;"aantal";"hu-kerngroep";461;"Hukern_aantal"
+740;"Ha";"hu-kerngroep";993;"bedekking";"hu-kerngroep";461;"Hukern_bedekking"
+741;"Ha";"GrVos_trosdravik";994;"bedekking";"GrVos_trosdravik";457;"GrVosBedekking"
+742;"Ha";"Bodemroering";995;"bedekking";"Bodemroering";506;"RuderalBedekking"
+743;"Ha";"Pitrus";996;"bedekking";"Pitrus";507;"PitrusBedekking"
+744;"Ha";"Eutrofiëring";997;"bedekking";"Eutrofiëring";508;"EutroBedekking"
+745;"Ha";"Verruiging";998;"bedekking";"Verruiging";510;"RuigteBedekking"
+746;"Ha";"EutrofiëringSterk";999;"bedekking";"EutrofiëringSterk";509;"EutroSterkBedekking"
+747;"Ha";"Verbraming";1000;"bedekking";"Verbraming";447;
+748;"Ha";"rbbKam-groep";1001;"bedekking";"rbbKam-groep";511;"rbbKamBedekking"
+749;"Ha";"brem-bedekking";1002;"bedekking";"brem-bedekking";512;"BremBedekking"
+750;"Ha";"ha+-groep";1003;"aantal";"ha+-groep";513;"HaplusAantal"
+751;"Ha";"ha+-groep";1004;"bedekking";"ha+-groep";513;"HaplusBedekking"
+752;"Hu";"SleutelsoortenStart";1005;"bedekking";"SleutelsoortenStart";514;"BedekkingSleutelsoortenStart"
+753;"Hu";"SleutelsoortenStart";1006;"aantal";"SleutelsoortenStart";514;"AantalSleutelsoortenStart"
+754;"Hu";"hn-groep";1007;"bedekking";"hn-groep";505;"HnBedekking"
+755;"Hu";"hn-groep";1008;"aantal";"hn-groep";505;"HnAantal"
+756;"Hu";"hc-groep";1009;"aantal";"hc-groep";459;"HcAantal"
+757;"Hu";"hc-groep";1010;"bedekking";"hc-groep";468;"HcBedekking"
+758;"Hu";"hu-groep";1011;"aantal";"hu-groep";460;"HuAantal"
+759;"Hu";"hu-groep";1012;"bedekking";"hu-groep";460;"HuBedekking"
+760;"Hu";"rbbVos-groep";1013;"aantal";"rbbVos-groep";469;"rbbVosAantal"
+761;"Hu";"rbbVos-groep";1014;"bedekking";"rbbVos-groep";469;"rbbVosBedekking"
+762;"Hu";"hu-kerngroep";1015;"aantal";"hu-kerngroep";461;"Hukern_aantal"
+763;"Hu";"hu-kerngroep";1016;"bedekking";"hu-kerngroep";461;"Hukern_bedekking"
+764;"Hu";"GrVos_trosdravik";1017;"bedekking";"GrVos_trosdravik";457;"GrVosBedekking"
+765;"Hu";"Bodemroering";1018;"bedekking";"Bodemroering";515;"RuderalBedekking"
+766;"Hu";"Pitrus";1019;"bedekking";"Pitrus";516;"PitrusBedekking"
+767;"Hu";"Eutrofiëring";1020;"bedekking";"Eutrofiëring";517;"EutroBedekking"
+768;"Hu";"Verruiging";1021;"bedekking";"Verruiging";519;"RuigteBedekking"
+769;"Hu";"EutrofiëringSterk";1022;"bedekking";"EutrofiëringSterk";518;"EutroSterkBedekking"
+770;"Hu";"Verbraming";1023;"bedekking";"Verbraming";447;
+771;"Hu";"rbbKam-groep";1024;"bedekking";"rbbKam-groep";511;"rbbKamBedekking"
+773;"Hu";"ha+-groep";1026;"aantal";"ha+-groep";513;"HaplusAantal"
+774;"Hu";"ha+-groep";1027;"bedekking";"ha+-groep";513;"HaplusBedekking"
+775;"Hu";"moeras-groep";1029;"bedekking";"moeras-groep";466;"MoerasBedekking"
+776;"Hu";"hf-groep";1030;"bedekking";"hf-groep";480;"HfBedekking"
+777;"Hu";"rbbZil-groep";1031;"aantal";"rbbZil-groep";464;"rbbZilAantal"
+778;"Hu";"rbbZil-groep";1032;"bedekking";"rbbZil-groep";467;"rbbZilBedekking"
+779;"Hu";"Vernatting";1025;"bedekking";"Vernatting";520;"NatBedekking"
+780;"Hu";"ha-groep";1033;"bedekking";"ha-groep";504;"HaBedekking"
+781;"Hu";"Beweiding";1034;"bedekking";"Beweiding";471;"BeweidingBedekking"
+788;"rbbHf";"SleutelsoortenKempen";1035;"bedekking";"SleutelsoortenKempen";526;"BedekkingSleutelsoortenKempen"
+789;"rbbHf";"SleutelsoortenKempen";1036;"aantal";"SleutelsoortenKempen";526;"AantalSleutelsoortenKempen"
+790;"rbbHf";"BodemroeringKempen";1037;"bedekking";"BodemroeringKempen";522;"RuderalBedekkingKempen"
+791;"rbbHf";"VerdrogingKempen";1038;"bedekking";"VerdrogingKempen";523;"VerdrogingBedekkingKempen"
+792;"rbbHf";"EutrofiëringKempen";1039;"bedekking";"EutrofiëringKempen";524;"EutroBedekkingKempen"
+793;"rbbHf";"VernattingKempen";1040;"bedekking";"VernattingKempen";525;"VernattingBedekkingKempen"
+794;"Ha";"Sleutelsoorten";1041;"bedekking";"Sleutelsoorten";528;"BedekkingSleutelsoorten"
+795;"Ha";"Sleutelsoorten";1042;"aantal";"Sleutelsoorten";527;"AantalSleutelsoorten"
+796;"Ha";"Lage grassen";1043;"bedekking";"Lage grassen";529;"LageGrassenBedekking"
+797;"rbbhc";"Beweiding";1044;"bedekking";"Beweiding";530;"BeweidingBedekking"
+798;"rbbhc";"hc-groep";1045;"aantal";"hc-groep";459;"HcAantal"
+799;"rbbhc";"hc-groep";1046;"bedekking";"hc-groep";468;"HcBedekking"
+800;"rbbhc";"hu-groep";1047;"aantal";"hu-groep";460;"HuAantal"
+801;"rbbhc";"hu-groep";1048;"bedekking";"hu-groep";460;"HuBedekking"
+802;"rbbhc";"rbbVos-groep";1049;"aantal";"rbbVos-groep";469;"rbbVosAantal"
+803;"rbbhc";"rbbVos-groep";1050;"bedekking";"rbbVos-groep";469;"rbbVosBedekking"
+804;"rbbhc";"hu-kerngroep";1051;"aantal";"hu-kerngroep";461;"Hukern_aantal"
+805;"rbbhc";"hu-kerngroep";1052;"bedekking";"hu-kerngroep";461;"Hukern_bedekking"
+806;"rbbhc";"GrVos_trosdravik";1053;"bedekking";"GrVos_trosdravik";457;"GrVosBedekking"
+807;"rbbhc";"moeras-groep";1054;"bedekking";"moeras-groep";466;"MoerasBedekking"
+808;"rbbhc";"hf-groep";1055;"bedekking";"hf-groep";480;"HfBedekking"
+809;"rbbhc";"rbbZil-groep";1056;"aantal";"rbbZil-groep";464;"rbbZilAantal"
+810;"rbbhc";"rbbZil-groep";1057;"bedekking";"rbbZil-groep";467;"rbbZilBedekking"
+811;"rbbkam";"Vernatting";1058;"bedekking";"Vernatting";531;"NatBedekking"
+812;"rbbkam";"IntensiefGebruik";1059;"bedekking";"IntensiefGebruik";532;"Beweiding_bedekking"
+813;"G";"moeras-groep";1060;"bedekking";"moeras-groep";466;"MoerasBedekking"
+814;"G";"moeras min riet, grz";1061;"bedekking";"moeras min riet, grz";533;"MoerasSSBedekking"
+816;"G";"basenminnend";1063;"aantal";"basenminnend";534;"Basenminnend_aantal"
+817;"G";"Hn-Groep";1064;"bedekking";"Hn-Groep";535;"Hngroep_bedekking"
+818;"G";"Hn-Groep";1065;"aantal";"Hn-Groep";535;"Hngroep_aantal"
+820;"G";"Hnk-Groep";1067;"aantal";"Hnk-Groep";536;"Hnkgroep_aantal"
+821;"G";"obligaat freatofyten";1068;"bedekking";"obligaat freatofyten zonder heischraal";550;"FreatofytenObl_bedekking"
+822;"G";"obligaat freatofyten";1069;"aantal";"obligaat freatofyten zonder heischraal";550;"FreatofytenObl_aantal"
+824;"G";"Hk-Groep";1071;"aantal";"Hk-Groep";538;"Hkgroep_aantal"
+827;"G";"Hm-Groep";1074;"bedekking";"Hm-Groep";541;"Hmgroep_bedekking"
+828;"G";"Hm-Groep";1075;"aantal";"Hm-Groep";541;"Hmgroep_aantal"
+829;"G";"Hme-Groep";1076;"bedekking";"Hme-Groep";542;"Hmegroep_bedekking"
+830;"G";"Hme-Groep";1077;"aantal";"Hme-Groep";542;"Hmegroep_aantal"
+831;"G";"Husc-groep";1078;"bedekking";"Husc-groep";543;"Huscgroep_bedekking"
+832;"G";"Husc-groep";1079;"aantal";"Husc-groep";543;"Huscgroep_aantal"
+833;"G";"hu-groep";1080;"bedekking";"hu-groep";460;"Hubedekking"
+834;"G";"hu-kerngroep";1081;"aantal";"hu-kerngroep";461;"Hukern_aantal"
+835;"G";"hu-kerngroep";1082;"bedekking";"hu-kerngroep";461;"Hukern_bedekking"
+836;"G";"ha-groep";1083;"aantal";"ha-groep";544;"Hagroep_aantal"
+837;"G";"ha-groep";1084;"bedekking";"ha-groep";544;"Hagroep_bedekking"
+838;"G";"heizoom";1085;"aantal";"heizoom";545;"Heizoom_aantal"
+839;"G";"facult. freatofyten";1086;"aantal";"facult. freatofyten";546;"FreatofytenFac_aantal"
+840;"G";"facult. freatofyten";1087;"bedekking";"facult. freatofyten";546;"FreatofytenFac_bedekking"
+841;"G";"Hmm-Groep";1088;"bedekking";"Hmm-Groep";547;"Hmmgroep_bedekking"
+842;"G";"Hmm-Groep";1089;"aantal";"Hmm-Groep";547;"Hmmgroep_aantal"
+846;"G";"ha+-groep";1093;"aantal";"ha+-groep";513;"Haplusgroep_aantal"
+847;"G";"ha+-groep";1094;"bedekking";"ha+-groep";513;"Haplusgroep_bedekking"
+848;"G";"heizoom";1095;"bedekking";"heizoom";545;"Heizoom_bedekking"
+849;"G";"droge hei";1096;"bedekking";"droge hei";551;"Drogehei_bedekking"
+850;"G";"natte hei";1097;"bedekking";"natte hei";552;"Nattehei_bedekking"
+851;"G";"eenjarigen-heide";1098;"bedekking";"eenjarigen-heide";553;
+852;"G";"orchidee-groep";1099;"bedekking";"orchidee-groep";554;"Orchidee_bedekking"
+853;"G";"orchidee-groep";1100;"aantal";"orchidee-groep";554;"Orchidee_aantal"
+854;"G";"Mk-groep";1101;"bedekking";"Mk-groep";555;"Mkgroep_bedekking"
+855;"G";"veldrus-groep";1102;"bedekking";"veldrus-groep";556;"Veldrusgroep_bedekking"
+856;"G";"veldrus-groep";1103;"aantal";"veldrus-groep";556;
+857;"G";"Da-groep";1104;"bedekking";"Da-groep";557;"Dagroep_bedekking"
+858;"G";"Da-groep";1105;"aantal";"Da-groep";557;"Dagroep_aantal"
+859;"G";"6430hw-groep";1106;"bedekking";"6430hw-groep";558;"h6430hwgroep_bedekking"
+860;"G";"ruigtekruiden";1107;"bedekking";"ruigtekruiden";559;"vruigtekruiden_bedekking"
+861;"G";"ruigtekruiden";1108;"aantal";"ruigtekruiden";559;"vruigtekruiden_aantal"
+863;"G";"rbbHfl-groep";1110;"bedekking";"rbbHfl-groep";561;"rbbHflgroep_bedekking"
+864;"G";"ruderaal-groep";1111;"bedekking";"ruderaal-groep";562;"ruderaalgroep_bedekking"
+865;"G";"ha-groepss";1112;"bedekking";"ha-groepss";563;"Hagroepss_bedekking"
+867;"G";"Ms-groep";1114;"aantal";"Ms-groep";564;"Msgroep_aantal"
+868;"G";"Ms-groep";1115;"bedekking";"Ms-groep";564;"Msgroep_bedekking"
+870;"G";"hc-kerngroep";1119;"bedekking";"hc-kerngroep";459;"Hckern_Bedekking"
+871;"G";"hc-groep";1116;"aantal";"hc-groep";468;"HcAantal"
+872;"G";"hc-groep";1117;"bedekking";"hc-groep";468;"HcBedekking"
+873;"G";"Zil-groep";1120;"aantal";"Zil-groep";464;"rbbZilAantal"
+874;"G";"Zil-groep";1121;"bedekking";"Zil-groep";464;"rbbZilBedekking"
+875;"G";"Vos-groep";1122;"aantal";"Vos-groep";565;"rbbVosAantal"
+876;"G";"Vos-groep";1123;"bedekking";"Vos-groep";565;"rbbVosBedekking"
+878;"G";"duingraslandsoorten";1125;"bedekking";"duingraslandsoorten";567;"Duingrasland_bedekking"
+880;"G";"Hmo-groep";1127;"aantal";"Hmo-groep";569;"Hmogroep_aantal"
+881;"G";"Galio-Trifolietumgr.";1128;"aantal";"Galio-Trifolietumgroep";570;"Huk_aantal"
+883;"G";"nitrofielezoom";1130;"aantal";"nitrofielezoom_groep";571;"nitrofielezoom_aantal"
+884;"G";"nitrofielezoom";1131;"bedekking";"nitrofielezoom_groep";571;"nitrofielezoom_bedekking"
+885;"G";"nitrofielezoom_begel";1132;"aantal";"NitrofieleZoom-begeleiders-groep";572;"nitrofielezoom_begel_aantal"
+886;"G";"nitrofielezoom_begel";1133;"bedekking";"NitrofieleZoom-begeleiders-groep";572;"nitrofielezoom_begel_bedekking"
+887;"G";"Mk-groep";1134;"aantal";"Mk-groep";555;"Mkgroep_aantal"
+888;"G";"6430bz-groep";1135;"aantal";"6430bz-groep";573;
+889;"G";"moeras-groep";1136;"aantal";"moeras-groep";466;"MoerasAantal"
+890;"G";"zurezoom-groep";1137;"bedekking";"zurezoom-groep";574;"zurezoomgroep_bedekking"
+891;"G";"zurezoom-groep";1138;"aantal";"zurezoom-groep";574;"zurezoomgroep_aantal"
+892;"G";"zurezoom begeleiders";1139;"bedekking";"zurezoom begeleiders";575;
+893;"G";"Hmo-groep";1140;"bedekking";"Hmo-groep";569;"Hmogroep_bedekking"
+894;"G";"heide-groep";1141;"bedekking";"heide-groep";549;"Heide_bedekking"
+895;"G";"hc diff hm-groep";1142;"bedekking";"hc diff hm-groep";576;
+896;"G";"hm diff hc-groep";1143;"bedekking";"hm diff hc-groep";577;
+897;"G";"ms diff hm-groep";1144;"bedekking";"ms diff hm-groep";578;
+898;"G";"hk uitgebreid";1145;"bedekking";"hk uitgebreid";579;
+899;"H";"heide habitatwaardig";1146;"bedekking";"heide habitatwaardig";580;
+900;"G";"Zil-groep uitgebreid";1147;"bedekking";"Zil-groep uitgebreid";581;
+901;"G";"voedselrijk grasland";1148;"bedekking";"voedselrijk grasland-groep";582;
+902;"G";"hpster grasland";1149;"bedekking";"hpster grasland-groep";583;
+903;"G";"vos diff hc";1150;"bedekking";"vos diff hc-groep";584;
+904;"G";"hc diff vos";1151;"bedekking";"hc diff vos-groep";585;
+905;"G";"ha_ruim";1152;"bedekking";"ha_ruim-groep";586;
+906;"G";"ruderaal_ruim";1153;"bedekking";"ruderaal_ruim-groep";587;
+907;"G";"hu_kern_inclbasen";1154;"bedekking";"hu_kern_inclbasen-groep";588;
+908;"G";"hmo diff hn-groep";1155;"bedekking";"hmo diff hn-groep";589;
+909;"G";"hnk diff h(u)k-groep";1156;"bedekking";"hnk diff h(u)k-groep";590;
+910;"G";"moerasmossen";1157;"bedekking";"moerasmossen";591;"moerasmos_bedekking"
+911;"G";"kalkmossen";1158;"aantal";"kalkmossen";592;
+912;"G";"hm diff hmo-groep";1159;"bedekking";"hm diff hmo-groep";593;
+913;"G";"hmo diff hm-groep";1160;"bedekking";"hmo diff hm-groep";594;
+914;"G";"hu diff vos-groep";1161;"bedekking";"hu diff vos-groep";595;
+915;"G";"vos diff hu-groep";1162;"bedekking";"vos diff hu-groep";596;
+916;"G";"grote vossenstaart";1163;"bedekking";"grote vossenstaart";597;"GroteVos_bedekking"
+917;"G";"zil diff vos-groep";1164;"bedekking";"zil diff vos-groep";598;
+918;"G";"vos diff zil-groep";1165;"bedekking";"vos diff zil-groep";599;
+919;"G";"hc diff zil-groep";1166;"bedekking";"hc diff zil-groep";600;
+920;"G";"zil diff hc-groep";1167;"bedekking";"zil diff hc-groep";601;
+921;"G";"ms diff hc-groep";1168;"bedekking";"ms diff hc-groep";602;
+922;"G";"hc diff ms-groep";1169;"bedekking";"hc diff ms-groep";603;
+923;"G";"valleigrasland-groep";1170;"bedekking";"valleigrasland-groep";604;
+924;"G";"ms-mossen-groep";1171;"bedekking";"ms-mossen-groep";605;
+925;"G";"hm diff ms-groep";1172;"bedekking";"hm diff ms-groep";606;
+926;"G";"hmn-groep";1173;"bedekking";"hmn-groep";607;
+927;"G";"hmn diff ms-groep";1174;"bedekking";"hmn diff ms-groep";608;
+928;"G";"hm(m)-kerngroep";1175;"bedekking";"hm(m)-kerngroep";609;
+929;"G";"hmo-kerngroep";1176;"bedekking";"hmo-kerngroep";610;
+930;"G";"hm diff heide-groep";1177;"bedekking";"hm diff heide-groep";611;
+931;"G";"hc diff heide-groep";1178;"bedekking";"hc diff heide-groep";612;
+932;"G";"ms diff heide-groep";1179;"bedekking";"ms diff heide-groep";613;
+933;"G";"hei diff gras-groep";1180;"bedekking";"hei diff gras-groep";614;
+934;"G";"m diff hei-groep";1181;"bedekking";"m diff hei-groep";615;
+935;"G";"hei diff moer-groep";1182;"bedekking";"hei diff moer-groep";616;
+937;"G";"hm_hmo-groep";1184;"bedekking";"hm_hmo-groep";618;
+938;"G";"ms_ruim-groep";1185;"bedekking";"ms_ruim-groep";619;
+939;"G";"m_ruim-groep";1186;"bedekking";"m_ruim-groep";620;
+940;"H";"open heide-groep";1187;"bedekking";"open heide-groep";621;
+941;"H";"buntgras-groep";1188;"bedekking";"buntgras-groep";622;
+942;"H";"zilverhaver-groep";1189;"bedekking";"zilverhaver-groep";623;
+943;"H";"ce diff cg-groep";1190;"bedekking";"ce diff cg-groep";624;
+944;"H";"c diff 23-groep";1191;"bedekking";"c diff 23-groep";625;
+945;"H";"23 diff c-groep";1192;"bedekking";"23 diff c-groep";626;
+946;"H";"landduin-groep";1193;"bedekking";"landduin-groep";627;
+947;"H";"duin diff 2330dw";1194;"bedekking";"duin diff 2330dw";628;
+948;"H";"2330dw diff duin";1195;"bedekking";"2330dw diff duin";629;
+949;"H";"23 diff grasland";1196;"bedekking";"23 diff grasland";630;
+950;"H";"cv-vochtig-groep";1197;"bedekking";"cv-vochtig-groep";631;
+951;"H";"7150-groep";1198;"bedekking";"7150-groep";632;
+952;"G";"hei_diff_heischr";1199;"bedekking";"hei_diff_heischr";633;
+953;"G";"heischr_diff_hei";1200;"bedekking";"heischr_diff_hei";634;
+954;"H";"hei_diff_7150-groep";1201;"bedekking";"hei_diff_7150-groep";635;
+955;"H";"ven-groep";1202;"bedekking";"ven-groep";636;
+956;"H";"grasland diff 23";1203;"bedekking";"grasland diff 23";637;
+957;"O";"hei diff gras-htabel";1204;"bedekking";"hei diff gras-htabel";638;
+958;"O";"7140_oli-groep";1205;"bedekking";"7140_oli-groep";639;
+959;"O";"heide s.l.";1206;"bedekking";"heide s.l.";640;
+960;"O";"heide sl diff grasl";1207;"bedekking";"heide sl diff grasl";641;
+961;"H";"hmo_ms_diff7140oli";1208;"bedekking";"hmo_ms_diff7140oli";642;
+962;"H";"M diff 4010_7140oli";1209;"bedekking";"M diff 4010_7140oli";643;
+963;"H";"hoogveenmossen";1210;"bedekking";"hoogveenmossen";644;
+964;"H";"dwergbies-groep";1211;"bedekking";"dwergbies-groep";645;
+965;"H";"Hn+-groep";1212;"bedekking";"Hn+-groep";646;
+966;"O";"3130-groep";1213;"bedekking";"3130-groep";647;
+967;"H";"heide habitatw sl";1214;"bedekking";"heide habitatw sl";648;
+968;"H";"cg diff ce-groep";1215;"bedekking";"cg diff ce-groep";649;
+969;"H";"ven- en moerasgroep excl 7140";1216;"bedekking";"ven- en moerasgroep excl 7140";650;
+970;"M";"rietl-sleutelsoorten";1217;"bedekking";"rietland";652;"rietl_sleutel_bedekking"
+971;"M";"rietl-begeleiders";1218;"bedekking";"rietl-begeleiders";653;"rietl_begel_bedekking"
+972;"M";"snavelb-sleutels.";1219;"bedekking";"snavelb-sleutels.";654;"snavelb_bedekking"
+973;"M";"zuurlaagv-sleutels.";1220;"bedekking";"zuurlaagv-sleutels.";655;"zuurlaagv_sleutel_bedekking"
+974;"M";"zuurlaagv-begel.";1221;"bedekking";"zuurlaagv-begel.";656;"zuurlaagv_begel_bedekking"
+975;"M";"overgangsv-sleutels.";1222;"bedekking";"overgangsv-sleutels.";657;"overgangsv_sleutel_bedekking"
+976;"M";"duinpan-sleutels.";1223;"bedekking";"duinpan-sleutels.";658;"duinpan_sleutel_bedekking"
+977;"M";"trilveen";1224;"bedekking";"trilveen";659;"trilveen_bedekking"
+978;"M";"alkalisch laagveen";1225;"bedekking";"alkalisch laagveen";660;"alklaagveen_bedekking"
+979;"M";"alkalische begeleid.";1226;"bedekking";"alkalische begeleid.";661;"alkal_begel_bedekking"
+980;"M";"natteruigte-sleutel.";1227;"bedekking";"natteruigte-sleutel.";662;"natteruigte_bedekking"
+981;"M";"natteruigte-begel.";1228;"bedekking";"natteruigte-begel.";663;"natteruigte_begel_bedekking"
+982;"M";"dottergrasland";1229;"bedekking";"dottergrasland";664;
+983;"M";"grotezegge";1230;"bedekking";"grotezegge";665;"grotezegge_bedekking"
+984;"M";"zeebies";1231;"bedekking";"zeebies";666;"zeebiesgroep_bedekking"
+985;"M";"invasieve exoten";1232;"bedekking";"invasieve exoten";667;"invasief_bedekking"
+986;"M";"3130_na";1233;"bedekking";"3130_na";668;
+987;"M";"rbbah";1234;"bedekking";"rbbah";669;
+988;"M";"3270";1235;"bedekking";"3270";670;
+989;"M";"duinpan+7230";1236;"bedekking";"duinpan+7230";671;
+990;"M";"7140meso diff ms";1237;"bedekking";"7140meso diff ms";672;
+991;"M";"mc_eutro";1238;"bedekking";"mc_eutro";673;
+992;"M";"mc_ruig";1239;"bedekking";"mc_ruig";674;
+993;"M";"mc_gras";1240;"bedekking";"mc_gras";675;
+994;"M";"6430_ruig";1241;"bedekking";"6430_ruig";676;
+995;"M";"rbbhfl-kwal";1242;"bedekking";"rbbhfl-kwal";677;
+996;"M";"6430_eutro";1243;"bedekking";"6430_eutro";678;"h6430_eutro_bedekking"
+997;"M";"6430_ruderaal";1244;"bedekking";"6430_ruderaal";679;"h6430_ruderaal_bedekking"
+998;"M";"6430_verdroging";1245;"bedekking";"6430_verdroging";680;"h6430_verdroging_bedekking"
+999;"M";"6430_rus";1246;"bedekking";"6430_rus";681;"h6430_rus_bedekking"
+1000;"M";"7140_eutro";1247;"bedekking";"7140_eutro";682;"h7140_eutro_bedekking"
+1001;"M";"7140_vergrassing";1248;"bedekking";"7140_vergrassing";683;"h7140_vergrassing_bedekking"
+1002;"M";"7140_ruig";1249;"bedekking";"7140_ruig";684;"h7140_ruig_bedekking"
+1003;"M";"ms_vergrassing";1250;"bedekking";"ms_vergrassing";685;"ms_vergrassing_bedekking"
+1004;"M";"ms_eutro";1251;"bedekking";"ms_eutro";686;"ms_eutro_bedekking"
+1005;"M";"ms_ruig";1252;"bedekking";"ms_ruig";687;"ms_ruig_bedekking"
+1006;"M";"water+moeras";1253;"bedekking";"water+moeras";688;"waterpl_moeraspl_bedekking"
+1007;"M";"natteruigte-grzegge";1254;"bedekking";"natteruigte-grzegge";689;"natteruigte_grzegge_bedekking"
+1008;"O";"waterpl";1255;"bedekking";"waterpl";690;"waterpl_bedekking"
+1009;"M";"riet_vs_ms";1256;"bedekking";"riet_vs_ms";691;
+1010;"M";"ms_vs_riet";1257;"bedekking";"ms_vs_riet";692;
+1011;"M";"hc_vs_mc";1258;"bedekking";"hc_vs_mc";693;
+1012;"M";"mc_vs_hc";1259;"bedekking";"mc_vs_hc";694;
+1013;"M";"zil_vs_mc";1260;"bedekking";"zil_vs_mc";695;
+1014;"M";"mc_vs_zil";1261;"bedekking";"mc_vs_zil";696;
+1015;"M";"netel_braam";1262;"bedekking";"netel_braam";697;

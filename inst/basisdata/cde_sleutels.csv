@@ -1,0 +1,14 @@
+"code";"betekenis";"tabelnaam";"met_veldsleutel";"link_code";"volgorde_uitvoering"
+"A";"Akkers en tuinbouw";"Akker";0;"_A";
+"B";"Bossen";"Bos";0;"_B";
+"D";"Duinen";"Duin";0;"_D";
+"E";"Pioniers";"Pionier";0;"_E";
+"G";"Graslanden";"Grasland";1;"_G";3
+"H";"Heiden";"Heide";1;"_H";2
+"M";"Moerassen";"Moeras";1;"_M";4
+"O";"Hoofdtabel";"Hoofdtabel";1;"_O";1
+"R";"Ruigtes en Zomen";"Ruigte";0;"_R";
+"S";"Slikken en Schorren";"SlikSchor";0;"_S";
+"U";"Urbaan";"Urbaan";0;"_U";
+"W";"Water";"Water";0;"_W";
+"Z";"Mariene biotopen";"Marien";0;"_Z";
