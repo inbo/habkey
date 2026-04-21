@@ -17,7 +17,17 @@ License: GPL-3
 URL: https://github.com/inbo/habkey
 BugReports: https://github.com/inbo/habkey/issues
 Imports:
-    readr, tibble, rlang
+    assertthat,
+    DBI,
+    dplyr,
+    readr,
+    rgbif,
+    rlang,
+    RSQLite,
+    stringr,
+    tibble,
+    tidyr,
+    tidyselect
 Config/checklist/communities: inbo
 Config/checklist/keywords: vegetatie; identificatie; classificatie
 Encoding: UTF-8

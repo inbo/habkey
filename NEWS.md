@@ -1,4 +1,4 @@
 # habkey 0.0.0
 
-* Added a `NEWS.md` file to track changes to the package.
-* Add [`checklist`](https://inbo.github.io/checklist/) infrastructure.
+* `NEWS.md` toegevoegd om aanpassingen aan het package te documenteren.
+* [`checklist`](https://inbo.github.io/checklist/) infrastructuur toegevoegd.
